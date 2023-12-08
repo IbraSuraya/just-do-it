@@ -1,0 +1,11 @@
+- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Search API - 01:25:25]
+- Slide : https://docs.google.com/presentation/d/1JufHKmW1Aqn3V93OD4RXcf_cpCIlmj658BQKS3hzg54/edit#slide=id.g24251555bf3_0_955
+
+Urutan Belajar by code/file*
+- elasticsearch
+- mapping
+- CreateAPI
+- getAPI
+
+Bingung
+- Cara mengetahui apa saja(product) dari API product dan cara tau id-nya
