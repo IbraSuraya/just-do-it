@@ -1,0 +1,67 @@
+### insert customers ibra sussces
+POST http://localhost:9200/customers/_create/ibra
+Content-Type: application/json
+
+{
+  "name": "Ibra Hasan Suraya",
+  "register_at": "2023-01-01 00:00:00"
+}
+
+### insert customers hasan failed
+POST http://localhost:9200/customers/_create/hasan
+Content-Type: application/json
+
+{
+  "name": "Ibra Hasan Suraya",
+  "register_at": "Ini Salah"
+}
+
+### get mapping
+GET http://localhost:9200/customers/_mapping
+### ========================================================
+### insert products 1 sussces
+POST http://localhost:9200/products/_create/1
+Content-Type: application/json
+
+{
+  "name": "Indomie Ayam Bawang",
+  "price": "2000"
+}
+
+### insert products 2 sussces
+POST http://localhost:9200/products/_create/2
+Content-Type: application/json
+
+{
+  "name": "Mie Sedap Soto",
+  "price": 2000
+}
+
+### get mapping
+GET http://localhost:9200/products/_mapping
+### ========================================================
+### insert orders 1 sussces
+POST http://localhost:9200/orders/_create/1
+Content-Type: application/json
+
+{
+  "order_date": "2023-01-01 00:00:00",
+  "customer_id": "ibra",
+  "total": 8000,
+  "items": [
+    {
+      "product_id": 1,
+      "price": 2000,
+      "quantity": 2
+    },
+    {
+      "product_id": 2,
+      "price": 2000,
+      "quantity": 2
+    }
+  ]
+}
+
+### get mapping
+GET http://localhost:9200/orders/_mapping
+### ========================================================

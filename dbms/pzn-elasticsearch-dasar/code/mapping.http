@@ -1,0 +1,75 @@
+### get customers mapping
+GET http://localhost:9200/customers/_mapping
+
+### update customers mapping
+PUT http://localhost:9200/customers/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Update detection number customers
+PUT http://localhost:9200/customers/_mapping
+Content-Type: application/json
+
+{
+  "numeric_detection": true
+}
+### ==================================================
+### get products mapping
+GET http://localhost:9200/products/_mapping
+
+### update products mapping
+PUT http://localhost:9200/products/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Update detection number products
+PUT http://localhost:9200/products/_mapping
+Content-Type: application/json
+
+{
+  "numeric_detection": true
+}
+### ==================================================
+### get orders mapping
+GET http://localhost:9200/orders/_mapping
+
+### update orders mapping
+PUT http://localhost:9200/orders/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Update detection number and orders
+PUT http://localhost:9200/orders/_mapping
+Content-Type: application/json
+
+{
+  "numeric_detection": true
+}
+### ==================================================

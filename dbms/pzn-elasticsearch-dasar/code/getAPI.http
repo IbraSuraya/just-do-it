@@ -1,0 +1,52 @@
+### get customers ibra
+GET http://localhost:9200/customers/_doc/ibra
+
+### get customers notFound
+GET http://localhost:9200/customers/_doc/notFound
+
+### ===========================================================
+### source customers ibra
+GET http://localhost:9200/customers/_source/ibra
+
+### source customers notFound
+GET http://localhost:9200/customers/_source/notFound
+
+### ===========================================================
+### Check customers ibra
+HEAD http://localhost:9200/customers/_doc/ibra
+
+### Check customers notFound
+HEAD http://localhost:9200/customers/_doc/notFound
+
+### ===========================================================
+### Multiget products 1 and 2
+GET http://localhost:9200/products/_mget
+Content-Type: application/json
+
+{
+  "ids": [
+    "1",
+    "2"
+  ]
+}
+
+### Get orders 1 and customer hasan
+GET http://localhost:9200/_mget
+Content-Type: application/json
+
+{
+  "docs": [
+    {
+      "_id": "1",
+      "_index": "orders"
+    },
+    {
+      "_id": "ibra",
+      "_index": "customers"
+    },
+    {
+      "_id": "3",
+      "_index": "products"
+    }
+  ]
+}

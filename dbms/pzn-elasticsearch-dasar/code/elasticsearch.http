@@ -1,0 +1,24 @@
+### create index customers
+PUT http://localhost:9200/customers
+
+### create index products
+PUT http://localhost:9200/products
+
+### create index orders
+PUT http://localhost:9200/orders
+
+### ================================================
+### show all indices
+GET http://localhost:9200/_cat/indices?v
+### ================================================
+
+### delele all index customers
+DELETE http://localhost:9200/customers
+
+### delele all index products
+DELETE http://localhost:9200/products
+
+### delele all index orders
+DELETE http://localhost:9200/orders
+
+### ================================================
