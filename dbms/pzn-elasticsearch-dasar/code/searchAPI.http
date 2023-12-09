@@ -1,0 +1,17 @@
+### search products [kenapa POST, karena saat searching kita akan mengirim data parameter juga melalui body]
+POST http://localhost:9200/products/_search
+
+### search GET
+GET http://localhost:9200/products/_search
+
+### Search Pagination with query param page 1
+POST http://localhost:9200/products/_search?size=1&from=0
+
+### pagination page 2
+POST http://localhost:9200/products/_search?size=1&from=1
+
+### search sorting with qp by price
+POST http://localhost:9200/products/_search?sort=price:asc
+
+### search sorting with qp by name (Gagal karena type data teks pada name)
+POST http://localhost:9200/products/_search?sort=name:asc

@@ -1,0 +1,31 @@
+# indexAPI bekerja dengan cara replace
+
+### search product
+POST http://localhost:9200/products/_search?sort=price:desc
+
+### Create and Save/Replace Again product 3
+POST http://localhost:9200/products/_doc/3
+Content-Type: application/json
+
+{
+  "name": "Pop Mie Rasa Bakso",
+  "price": 2500
+}
+
+### Create and Save/Replace Again product 4
+POST http://localhost:9200/products/_doc/4
+Content-Type: application/json
+
+{
+  "name": "Samsung Galaxy S9+",
+  "price": 10000000
+}
+
+### Create and Save/Replace Again product 5
+POST http://localhost:9200/products/_doc/5
+Content-Type: application/json
+
+{
+  "name": "Acer Predator XXI",
+  "price": 25000000
+}

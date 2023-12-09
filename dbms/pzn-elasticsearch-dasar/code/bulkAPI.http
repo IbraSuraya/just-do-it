@@ -1,0 +1,10 @@
+### Get random
+GET http://localhost:9200/customers/_doc/spammer
+### Get random
+GET http://localhost:9200/products/_doc/1
+
+### Bulk document
+POST http://localhost:9200/_bulk
+Content-Type: application/json
+
+< bulkTest.json
