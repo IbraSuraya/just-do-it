@@ -1,0 +1,32 @@
+### Create orders alias
+POST http://localhost:9200/_aliases
+Content-Type: application/json
+
+{
+  "actions": [
+    {
+      "add": {
+        "index": "orders",
+        "alias": "order"
+      }
+    },
+    {
+      "add": {
+        "index": "customers",
+        "alias": "customer"
+      }
+    }
+  ]
+}
+
+### Get alias order
+GET http://localhost:9200/_aliases
+
+### Menggunakan alias customer
+GET http://localhost:9200/customer/_search
+
+### Menggunakan alias order
+GET http://localhost:9200/order/_search
+
+### "add" : menambahkan alias
+### "remove" : menghapus alias
