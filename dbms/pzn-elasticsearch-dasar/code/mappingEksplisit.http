@@ -1,0 +1,80 @@
+# Eksplisit = Manual
+### create index customers_v2
+PUT http://localhost:9200/customers_v2
+
+### Update mapping customers_v2
+PUT http://localhost:9200/customers_v2/_mapping
+Content-Type: application/json
+
+{
+  "numeric_detection": true,
+  "date_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy/MM/dd"
+  ],
+  "properties": {
+    "username": {
+      "type": "keyword"
+    },
+    "first_name": {
+      "type": "text"
+    },
+    "last_name": {
+      "type": "text"
+    },
+    "email": {
+      "type": "keyword"
+    },
+    "gender": {
+      "type": "keyword"
+    },
+    "birth_date": {
+      "type": "date",
+      "format": "yyyy-MM-dd"
+    }
+  }
+}
+
+### Swtich alias customer form customers to customers_v2
+POST http://localhost:9200/_aliases
+Content-Type: application/json
+
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "customers",
+        "alias": "customer"
+      }
+    },
+    {
+      "add": {
+        "index": "customers_v2",
+        "alias": "customer"
+      }
+    }
+  ]
+}
+
+### GET all alias
+GET http://localhost:9200/_aliases
+
+### search customer
+POST http://localhost:9200/customer/_search
+
+### get customer
+GET http://localhost:9200/customers_v2/_mapping
+
+### bulk insert customer
+POST http://localhost:9200/_bulk
+Content-Type: application/json
+
+# Coba 1
+< ./data/customers.json
+
+
+### Coba 2
+### @ ./data/customers.json

@@ -1,0 +1,67 @@
+### create index orders
+PUT http://localhost:9200/orders_v2
+
+### Update orders v2 mapping
+PUT http://localhost:9200/orders_v2/_mapping
+Content-Type: application/json
+
+{
+  "numeric_detection": true,
+  "date_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy/MM/dd"
+  ]
+}
+### GET orders_v2
+GET http://localhost:9200/orders_v2/_search
+
+# =============================================================
+### Reindex orders data
+POST http://localhost:9200/_reindex
+Content-Type: application/json
+
+{
+  "source": {
+    "index": "orders"
+  },
+  "dest": {
+    "index": "orders_v2"
+  }
+}
+
+### Search orders_v2
+POST http://localhost:9200/orders_v2/_search
+
+### Search orders
+POST http://localhost:9200/orders/_search
+
+# =============================================================
+### Remove and add orders alias
+POST http://localhost:9200/_aliases
+Content-Type: application/json
+
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "orders",
+        "alias": "order"
+      }
+    },
+    {
+      "add": {
+        "index": "orders_v2",
+        "alias": "order"
+      }
+    }
+  ]
+}
+
+### Search order alias
+POST http://localhost:9200/order/_search
+
+### get aliases
+GET http://localhost:9200/_aliases
