@@ -69,12 +69,7 @@ POST http://localhost:9200/customer/_search
 GET http://localhost:9200/customers_v2/_mapping
 
 ### bulk insert customer
-POST http://localhost:9200/_bulk
+POST http://localhost:9200/_bulk HTTP/1.1
 Content-Type: application/json
 
-# Coba 1
-< ./data/customers.json
-
-
-### Coba 2
-### @ ./data/customers.json
+< C:\Users\IBRA\Desktop\just-do-it\dbms\pzn-elasticsearch-dasar\data\customers.json

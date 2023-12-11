@@ -21,4 +21,6 @@ Bingung
   * Keknya udh kejawab di sub materi Source Field
 - Type Data Teks : Membahas sorting pada search API di data type Teks
 - type : keyword -> Eksazt?, tidak perlu dipotong2 dengan textanalyzer? dan bisa diurutkan?
-- Bulk tapi file jsonya beda directory
+- Bulk tapi file jsonya beda directory pake path relative
+- Cara hapus beberapa source / data dari index
+- kenapa bulk customer.json auto masuk ke indeks customer_v2, padahal tujuannya ke index lain (customer_testIbra)
