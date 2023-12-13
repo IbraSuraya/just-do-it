@@ -1,0 +1,46 @@
+### SELECT * FROM customer WHERE gender = "Female" LIMIT 10 OFFSET 0 ORDER BY username DESC
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "term": {
+      "gender": "Female"
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+### karena "keyword" harus sama persis
+### Hanya type : keyword, number, date yang bisa di sorting 
+### ==========================================
+### SELECT * FROM customer WHERE bank.name = "BCA" LIMIT 10 OFFSET 0 ORDER BY username DESC [GAGAL karena type text]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "term": {
+      "bank.name": "BCA"
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+### Solusinya banks.name = "bca" [dibuat lowecase]
+

@@ -1,0 +1,33 @@
+### update mapping customers_v2
+PUT http://localhost:9200/customers_v2/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "hobbies": {
+      "type": "text"
+    },
+    "banks": {
+      "properties": {
+        "name": {
+          "type": "text"
+        },
+        "account_number": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+### get customer
+GET http://localhost:9200/customers_v2/_mapping
+
+### search customer
+POST http://localhost:9200/customer/_search
+
+### bulk insert new data customer with address 
+POST http://localhost:9200/_bulk HTTP/1.1
+Content-Type: application/json
+
+< C:\Users\IBRA\Desktop\just-do-it\dbms\pzn-elasticsearch-dasar\data\customers-with-banks-and-hobbies.json

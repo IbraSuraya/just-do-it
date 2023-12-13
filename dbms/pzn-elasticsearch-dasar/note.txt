@@ -1,10 +1,11 @@
-- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Object Field - 02:28:32]
+- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Terms Query 2 - 03:01:45]
 - Slide : https://docs.google.com/presentation/d/1JufHKmW1Aqn3V93OD4RXcf_cpCIlmj658BQKS3hzg54/edit#slide=id.g24251555bf3_0_955
+- https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/analysis/standard/StandardAnalyzer.java
 
 Urutan Belajar by code/file*
 - elasticsearch
 - mappingDynamic 
-- CreateAPI
+- CreateAPI [Type Match All atau semua data dipanggil]
 - getAPI
 - SearchAPI with query parameter
 - indexAPI
@@ -15,12 +16,14 @@ Urutan Belajar by code/file*
 - Reindex
 - Source Field [Search include Excludes]
 - mappingEksplitis 
+- objectMapping [Object Field]
+- arrayMappin [Array Field]
+- matchAll [Query]
+  - Paging & Sorting w Request parameter
+- term [Term Query]
+- termMatch [Match Query]
 
 Bingung
-- search API dengan cara body content type
-  * Keknya udh kejawab di sub materi Source Field
-- Type Data Teks : Membahas sorting pada search API di data type Teks
-- type : keyword -> Eksazt?, tidak perlu dipotong2 dengan textanalyzer? dan bisa diurutkan?
 - Bulk tapi file jsonya beda directory pake path relative
 - Cara hapus beberapa source / data dari index
-- kenapa bulk customer.json auto masuk ke indeks customer_v2, padahal tujuannya ke index lain (customer_testIbra)
+- Materi Text Analysis kompleks karena tujuannya untuk search engine

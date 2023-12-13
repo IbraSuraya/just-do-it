@@ -1,0 +1,55 @@
+### SELECT * FROM customer WHERE bank.name = "BCA" LIMIT 10 OFFSET 0 ORDER BY username DESC [GAGAL karena type text]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "banks.name": "BCA"
+    }
+  },
+  "size": 5,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+### JSON => lunce docs [Khusus Type "Text"]
+### banks.name = "BCA" => banks.name = ["bca"]
+### banks.name = "BCA Digital" => banks.name = ["bca", "digital"]
+### Solusi : pake tipe data keyword
+### Alasan seperti ini karena mirip search engine bekerja, dimana dia akan menampilkan segala jenis BCA
+
+
+### email = "IBRA@gmail.COM" => email = ["ibra", "gmail", "com"]
+
+### ===================================================
+### term Match with Operator Login [Default:OR, AND]
+### SELECT * FROM customer WHERE bank.name = "BCA DIGITAL" LIMIT 10 OFFSET 0 ORDER BY username DESC [GAGAL karena type text]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "banks.name": {
+        "query": "BCA DIGITAL",
+        "operator": "AND"
+      }
+    }
+  },
+  "size": 5,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}

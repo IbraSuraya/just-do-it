@@ -1,0 +1,39 @@
+### update mapping customer_v2
+PUT http://localhost:9200/customers_v2/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "address": {
+      "properties": {
+        "street": {
+          "type": "text"
+        },
+        "city": {
+          "type": "text"
+        },
+        "province": {
+          "type": "text"
+        },
+        "country": {
+          "type": "text"
+        },
+        "zip_code": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+### get customer
+GET http://localhost:9200/customers_v2/_mapping
+
+### search customer
+POST http://localhost:9200/customer/_search
+
+### bulk insert new data customer with address 
+POST http://localhost:9200/_bulk HTTP/1.1
+Content-Type: application/json
+
+< C:\Users\IBRA\Desktop\just-do-it\dbms\pzn-elasticsearch-dasar\data\customers-with-addresses.json
