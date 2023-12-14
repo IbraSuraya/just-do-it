@@ -1,4 +1,4 @@
-- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Nested Field - 04:08:03]
+- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Multi Field - 04:08:03]
 - Slide : https://docs.google.com/presentation/d/1JufHKmW1Aqn3V93OD4RXcf_cpCIlmj658BQKS3hzg54/edit#slide=id.g24251555bf3_0_955
 - https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/analysis/standard/StandardAnalyzer.java
 - https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables
