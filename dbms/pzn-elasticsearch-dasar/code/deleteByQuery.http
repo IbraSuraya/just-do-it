@@ -1,0 +1,30 @@
+### Add wrong categories
+POST http://localhost:9200/categories/_doc/2
+Content-Type: application/json
+
+{
+  "name": "Salah"
+}
+
+### add wrong categorie
+POST http://localhost:9200/categories/_doc/3
+Content-Type: application/json
+
+{
+  "name": "Salah lagi"
+}
+
+### get categories
+POST  http://localhost:9200/categories/_search
+
+### delete wrong categories
+POST http://localhost:9200/categories/_delete_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "name": "salah"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+### create index categories
+PUT http://localhost:9200/categories
+
+### update categories mapping
+PUT http://localhost:9200/categories/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "name": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+### GET categories mapping
+GET http://localhost:9200/categories/_mapping
+
+### insert category 1
+POST http://localhost:9200/categories/_doc/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Murah"
+}
+
+### Get Categories 1
+GET http://localhost:9200/categories/_doc/1
+
+### search category by name
+POST http://localhost:9200/categories/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "name": "laptop"
+    }
+  },
+  "sort": [
+    {
+      "name.raw": {
+        "order": "asc"
+      }
+    }
+  ]
+}
+
+### alasan sortnya name.raw karena dia adalah keyword yg bisa disort
+
+### search category by name.raw
+POST http://localhost:9200/categories/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "name.raw": "Laptop Murah"
+    }
+  }
+}

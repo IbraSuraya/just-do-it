@@ -1,4 +1,4 @@
-- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Multi Field - 04:08:03]
+- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Cat API - 04:43:21]
 - Slide : https://docs.google.com/presentation/d/1JufHKmW1Aqn3V93OD4RXcf_cpCIlmj658BQKS3hzg54/edit#slide=id.g24251555bf3_0_955
 - https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/analysis/standard/StandardAnalyzer.java
 - https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables
@@ -31,6 +31,10 @@ Urutan Belajar by code/file*
 - parentIndex [nested field]
   - solusiParents
   - solusiParents2
+- Multi Field
+- Update by Query API
+- Delete by Query API
+- search After
 
 Bingung
 - Bulk tapi file jsonya beda directory pake path relative
@@ -39,3 +43,6 @@ Bingung
 - Batas bawah _score dalam boolean query
 - Metode urutan hasil dari boolean query "filter" atas dasar apa?
 - coba perhitungan explainAPI
+- ""ignore_above": 256" di materi update by query hasil dynamic mapping / default
+- coba metode tidak rekomendid scroll api untuk solusi search lebih dari 10K
+- Bikin code loop untuk after search

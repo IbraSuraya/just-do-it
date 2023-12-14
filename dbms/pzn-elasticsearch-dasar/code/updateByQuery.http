@@ -1,0 +1,47 @@
+### Get product mapping
+GET http://localhost:9200/products/_mapping
+
+### kondisi sebelum update
+### kenapa udh ada field, ini sebab kita menggunakan dynamic mapping
+
+### update products mapping, add name.raw
+PUT http://localhost:9200/products/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "name": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+### search product
+POST http://localhost:9200/products/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "name.raw": "Mie Sedap Soto"
+    }
+  }
+}
+
+### kosong karena kita belum reindex, solusinya menggunakan update by Query
+
+### update all product document
+POST http://localhost:9200/products/_update_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "match_all": {
+    }
+  }
+}

@@ -1,0 +1,106 @@
+### delete all categories sebelumnya hasil belajar
+POST http://localhost:9200/categories/_delete_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "match_all": {
+    }
+  }
+}
+
+### Update categories mapping
+PUT http://localhost:9200/categories/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    }
+  }
+}
+
+### Get mapping categories
+GET http://localhost:9200/categories/_mapping
+
+### Bulk document
+POST http://localhost:9200/_bulk HTTP/1.1
+Content-Type: application/json
+
+< C:\Users\IBRA\Desktop\just-do-it\dbms\pzn-elasticsearch-dasar\data\categories.json
+
+### search categories [simple]
+POST http://localhost:9200/categories/_search
+
+### sesuai dengan ketentuan yaitu total.value = 10K saja
+### "relation": "gte' => greater than or equal to another value.
+
+### search categories [Data setelah 10K]
+POST http://localhost:9200/categories/_search
+Content-Type: application/json
+
+{
+  "size": 100, 
+  "from": 10000,
+  "query": {
+    "match_all": {
+
+    }
+  }
+}
+
+### Result window is too large. from + size must be less than or equal to: [10000] but was [10100].
+### ===============================================
+### search categories
+POST http://localhost:9200/categories/_search
+Content-Type: application/json
+
+{
+  "size": 100, 
+  "from": 0,
+  "query": {
+    "match_all": {
+
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "asc"
+      }
+    }
+  ]
+}
+
+### harus unique menggunakan id
+### lalu simpan nilai "sort" : "10087" pada result request
+### "sort" : "10087" === _id terakhir
+
+### search after categories
+POST http://localhost:9200/categories/_search
+Content-Type: application/json
+
+{
+  "size": 100, 
+  "from": 0,
+  "query": {
+    "match_all": {
+
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "asc"
+      }
+    }
+  ],
+  "search_after": [
+    "10087"
+  ]
+}
+
+### kerjanya manipulasi request seolah2 mencari page pertama selalu
+### lalu simpan nilai "sort" pada result request selajutnya lagi
+### loop ini akan berhenti jika result "hits" kosong
