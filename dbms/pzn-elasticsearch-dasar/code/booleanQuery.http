@@ -1,0 +1,215 @@
+### WHERE hobbies = "gaming" AND banks.name = "bca" ["value": 106]
+### search customer [MUST]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        }
+      ]
+    }
+  }
+}
+
+### WHERE hobbies = "gaming" AND banks.name = "bca digital" ["value": 62]
+### search customer [MUST]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        },
+        {
+          "match": {
+            "banks.name": {
+              "query" : "bca digital",
+              "operator" : "AND"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+### Score adalah nilai relevansi dengan kemamuan kita, semakin dekat dengan max_score, maka akan ditampilkan diatas
+
+### =============================================
+### WHERE hobbies = "gaming" AND banks.name = "bca" ["value": 106] [Diurut berdasarkan ID]
+### search customer [FILTER]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        }
+      ]
+    }
+  },
+  "sort" : [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+### tidak mengkalkulasi nilai score, sehingga hasilnya tidak diurutkan berdasarkan relevansi (minim hasilnya)
+### walau begitu, tujuan filter untuk bisa dikombinasi dengan sort dan paging
+### tanpa sort => _score : 0
+### dengan sort => _score : null
+
+### =============================================
+### WHERE hobbies != "gaming" AND banks.name != "bca digital" ["value": 524]
+### search customer [Must Not]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "must_not": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        },
+        {
+          "match": {
+            "banks.name": {
+              "query" : "bca digital",
+              "operator" : "AND"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+### =============================================
+### WHERE banks.name = "bca" OR banks.name = "bni" ["value": 509]
+### search customer [Should]
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bni"
+          }
+        }
+      ]
+    }
+  }
+}
+
+### include relevansi karena ada _score
+
+### =============================================
+### kombinasi Should x terms lain
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "size": 10,
+  "from": 315,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bni"
+          }
+        }
+      ]
+    }
+  }
+}
+
+### Status Must wajib ada
+### sedangkan kedua term should tidak wajib
+### bukti bisa dilihat dari hasil akhir [Gaming tapi tidak ada bca ataupun bni]
+
+### Solusi sebelum ini
+### WHERE hobbies = 'gaming' AND (banks.name = 'bca' OR banks.name = 'bni)
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "size": 10,
+  "from": 135,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hobbies": "gaming"
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bni"
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}

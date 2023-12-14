@@ -1,6 +1,7 @@
-- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Terms Query 2 - 03:01:45]
+- CheckPoint : https://youtu.be/JfW7tg0yWsc?si=TItEImBOL5lffKBN [Boost Score - 03:33:13]
 - Slide : https://docs.google.com/presentation/d/1JufHKmW1Aqn3V93OD4RXcf_cpCIlmj658BQKS3hzg54/edit#slide=id.g24251555bf3_0_955
 - https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/analysis/standard/StandardAnalyzer.java
+- https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables
 
 Urutan Belajar by code/file*
 - elasticsearch
@@ -22,8 +23,14 @@ Urutan Belajar by code/file*
   - Paging & Sorting w Request parameter
 - term [Term Query]
 - termMatch [Match Query]
+- terms query
+- boolean query
+- explainAPI [score]
 
 Bingung
 - Bulk tapi file jsonya beda directory pake path relative
 - Cara hapus beberapa source / data dari index
 - Materi Text Analysis kompleks karena tujuannya untuk search engine
+- Batas bawah _score dalam boolean query
+- Metode urutan hasil dari boolean query "filter" atas dasar apa?
+- coba perhitungan explainAPI

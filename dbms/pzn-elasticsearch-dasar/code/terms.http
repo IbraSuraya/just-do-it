@@ -1,0 +1,51 @@
+### like query "IN" SQL [WHERE IN "username1", ..]
+### Search Customer username
+POST http://localhost:9200/customer/_search/
+Content-Type: application/json
+
+{
+  "query": {
+    "terms": {
+      "username": [
+        "username1",
+        "username2",
+        "username3"
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+### terms tetap pakai lowercase
+### Search Customer banks.name
+POST http://localhost:9200/customer/_search/
+Content-Type: application/json
+
+{
+  "query": {
+    "terms": {
+      "banks.name": [
+        "bca",
+        "jago",
+        "bni"
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "username": {
+        "order": "desc"
+      }
+    }
+  ]
+}
