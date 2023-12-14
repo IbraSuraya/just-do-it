@@ -1,0 +1,64 @@
+### WHERE hobbies = 'gaming' AND (banks.name = 'bca' OR banks.name = 'bni)
+POST http://localhost:9200/customer/_explain/username126
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hobbies": {
+              "value": "gaming",
+              "boost": 0.5
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "banks.name": "bca"
+          }
+        },
+        {
+          "term": {
+            "banks.name": "bni"
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+
+### tujuan boots pada skenario, jika ingin mencari "ibra" sbg firstname dan "suraya" sbg "lastname". Maka boots firstname akan lebih besar, agar mencari terlebih dahulu ibra sebagai firstname bukan sebagai lastname
+
+### WHERE (banks.name = 'bca' OR banks.name = 'bni PRIORITAS)
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "term": {
+            "banks.name": {
+              "value": "bca",
+              "boost": 0
+            }
+          }
+        },
+        {
+          "term": {
+            "banks.name": {
+              "value": "bni",
+              "boost": 2
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+### update mapping for customer
+PUT http://localhost:9200/customer/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "labels": {
+      "type": "flattened"
+    }
+  }
+}
+
+### Get Customer Mapping
+GET http://localhost:9200/customer/_mapping
+
+### update document customer username1
+POST http://localhost:9200/customer/_update/username1
+Content-Type: application/json
+
+{
+  "doc": {
+    "labels": {
+      "priority": "vip",
+      "discount": "10% discount",
+      "compalint": "always complaint"
+    }
+  }
+}
+
+### POST customer 1
+POST http://localhost:9200/customer/_search?sort=username:asc
+
+### GET customer 1
+GET http://localhost:9200/customer/_doc/username2
+
+
+### update document customer username2
+POST http://localhost:9200/customer/_update/username2
+Content-Type: application/json
+
+{
+  "doc": {
+    "labels": {
+      "priority": "regular",
+      "verified": "unverified",
+      "buy": "never buy"
+    }
+  }
+}
+
+### isi dalam lucined docs dan menjadi keyword [sehingga tidak perlu lowercase, dicacah dsb]
+### labels : ["reguler", "unverified", "never buy"]
+
+
+### search flattened field customer
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "term": {
+      "labels": "vip"
+    }
+  }
+}
+
+### sorting flattende field ini berdasarkan lexicographically :> dimana 999 > 1000 atau 1, 10, 2 3, 4
+
+### search customer vip OR reguler
+POST http://localhost:9200/customer/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "term": {
+            "labels.priority": "vip"
+          }
+        },
+        {
+          "term": {
+            "labels.priority": "regular"
+          }
+        }
+      ]
+    }
+  }
+}

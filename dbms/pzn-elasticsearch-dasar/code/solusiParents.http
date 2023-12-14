@@ -1,0 +1,87 @@
+### Delete parents index
+DELETE http://localhost:9200/parents
+
+### create parents index
+PUT http://localhost:9200/parents
+
+### Update parent mapping with nested children
+PUT http://localhost:9200/parents/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "first_name": {
+      "type": "text"
+    },
+    "last_name": {
+      "type": "text"
+    },
+    "children": {
+      "type": "nested",
+      "properties": {
+        "first_name": {
+          "type": "text"
+        },
+        "last_name": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
+
+### Get parent mapping
+GET http://localhost:9200/parents/_mapping
+
+
+### Insert data parents
+POST http://localhost:9200/parents/_doc/1
+Content-Type: application/json
+
+{
+  "first_name": "Ibra",
+  "last_name": "Suraya",
+  "children": [
+    {
+      "first_name": "Radit", 
+      "last_name": "Tiyo"
+    },
+    {
+      "first_name": "Maul", 
+      "last_name": "Lana"
+    }
+  ]
+}
+
+### Get parent 1
+GET http://localhost:9200/parents/_doc/1
+
+### Solusi
+POST http://localhost:9200/parents/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "nested": {
+      "path": "children",
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "children.first_name": "Maul"
+              }
+            },
+            {
+              "match": {
+                "children.last_name": "Lana"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
+### Nested Quey ini berat terhadap perfomance searcing

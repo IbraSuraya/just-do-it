@@ -1,0 +1,27 @@
+### Mengkali struktur dengan membuat full_name, sehingga tidak perlu nested field
+PUT http://localhost:9200/parents/_mapping
+Content-Type: application/json
+
+{
+  "properties": {
+    "first_name": {
+      "type": "text"
+    },
+    "last_name": {
+      "type": "text"
+    },
+    "children": {
+      "properties": {
+        "first_name": {
+          "type": "text"
+        },
+        "last_name": {
+          "type": "text"
+        },
+        "full_name": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
