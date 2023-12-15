@@ -1,0 +1,7 @@
+### menampilkan semua cat API
+GET http://localhost:9200/_cat/
+
+### salah satu contoh
+GET http://localhost:9200/_cat/nodes?v
+
+### parameter v untuk memberikan query parameter column

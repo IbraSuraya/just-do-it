@@ -1,0 +1,5 @@
+### delete snapshot snapshot 1 [jangan biar gk bikin lagi]
+# DELETE  http://localhost:9200/_snapshot/first_backup/snapshot1
+
+### delete repository first_backup [jangan biar gk bikin lagi]
+# DELETE http://localhost:9200/_snapshot/first_backup

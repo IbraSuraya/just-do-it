@@ -1,4 +1,5 @@
 # just-do-it
 
-- [X] Pekerjaan 1 [Google](https://www.google.com){:target="_blank"}
+- [ ] ElasticSearch Basic by [PZN](https://www.youtube.com/watch?v=JfW7tg0yWsc){:target="_blank"}
+- [X] ElasticSearch Basic by [PZN](https://www.youtube.com/watch?v=JfW7tg0yWsc){:target="_blank"}
 

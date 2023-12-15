@@ -1,0 +1,35 @@
+### create repository backup
+PUT http://localhost:9200/_snapshot/first_backup
+Content-Type: application/json
+
+{
+  "type": "fs",
+  "settings": {
+    "location": "first_backup"
+  }
+}
+
+### "fs" : file storage
+
+### list repository
+GET http://localhost:9200/_snapshot
+
+### create snapshot
+PUT http://localhost:9200/_snapshot/first_backup/snapshot1
+Content-Type: application/json
+
+{
+  "indices": [],
+  "metadata": {
+    "taken_by": "ibra",
+    "taken_because": "Backup before upgrading"
+  }
+}
+
+### jika data besar, proses ini akan berjalan di background sehingga memakan waktu
+
+### get snapshot
+GET http://localhost:9200/_snapshot/first_backup/snapshot1
+
+### seluruh snapshot dengan cat api get snapshot
+GET http://localhost:9200/_cat/snapshots?v
