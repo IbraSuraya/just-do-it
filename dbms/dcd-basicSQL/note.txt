@@ -1,0 +1,4 @@
+Docs Materi : https://docs.google.com/document/d/1qgZYGD516ZBwD3i-yM_HA1mRISc5gZwJD9IPFN0oM2U/edit
+
+Base DBMS : DB Browser for SQL
+Dataset : https://www.kaggle.com/datasets/japandata509/shinkansen-stations-in-japan
