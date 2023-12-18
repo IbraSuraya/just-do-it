@@ -1,0 +1,7 @@
+To Do
+- 
+- Latihan Exploratory Data Analysis
+- Latihan Membuat Visualisasi Data
+- Sub Bab Dashboard
+
+Docs Materi : https://docs.google.com/document/d/1qgZYGD516ZBwD3i-yM_HA1mRISc5gZwJD9IPFN0oM2U/edit
