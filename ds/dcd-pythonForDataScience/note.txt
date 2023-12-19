@@ -1,6 +1,6 @@
 To Do
 - 
-- Latihan Exploratory Data Analysis
+- 
 - Latihan Membuat Visualisasi Data
 - Sub Bab Dashboard
 
