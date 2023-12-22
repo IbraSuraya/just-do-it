@@ -1,0 +1,15 @@
+# run server
+./bin/mongod --dbpath=data
+
+# Akses client terminal base
+./bin/mongosh "mongodb://localhost:27017/test"
+
+- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [51:35 - BSON]
+- Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
+
+Urutan
+- useDatabase
+
+# Kebingungan
+- Siapin gitignore
+- 
