@@ -1,14 +1,14 @@
 db.<collection>.insertOne(document)         // Menambah dokuemn ke collection
 db.<collection>.insertMany(array<document>) // Menambah semua dokuemn di array ke collection
 
-// insert customers document
+// insert customers document (Satu Document)
 db.customers.insertOne({
     _id: "Suraya",
     name: "Ibra Hasan Suraya"
 });
 db.customers.find();
 
-// insert product documents
+// insert product documents (banyak document)
 db.products.insertMany([
     {
         _id: 1,

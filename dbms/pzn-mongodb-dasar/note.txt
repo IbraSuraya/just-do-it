@@ -4,7 +4,7 @@
 # Akses client terminal base
 ./bin/mongosh "mongodb://localhost:27017/test"
 
-- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [01:28:31 - Evaluation Query Operator]
+- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [02:13:23 - Field Update Operator]
 - Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
 
 Urutan
@@ -15,7 +15,19 @@ Urutan
 - comparisonQueryOperator
 - logicalQueryOperator
 - elementQueryOperator
+- evaluationQueryOperator
+- arrayQueryOperator
+- projectionOperator
+- queryModifier
+- updateDoc
 
 # Kebingungan
-- pada query document, apakah ada pengaruh lower/uppper case pada saat find?
-- update document yang kekurangan field/column (seperti product 1 dan 2 yang tidak ada column category)
+- belajar regex javascript
+- mongodb json schema
+- beberapa di Text Index
+  - evaluationQueryOperator : $text
+  - projectionOperator : $meta
+- penggunaan $options pada :
+  - non case sensitive
+  - update doc
+- operator $set
