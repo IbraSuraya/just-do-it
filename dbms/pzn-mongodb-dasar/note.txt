@@ -4,7 +4,7 @@
 # Akses client terminal base
 ./bin/mongosh "mongodb://localhost:27017/test"
 
-- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [02:13:23 - Field Update Operator]
+- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [02:51:00 - Bulk Write Operator]
 - Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
 
 Urutan
@@ -20,6 +20,10 @@ Urutan
 - projectionOperator
 - queryModifier
 - updateDoc
+- fieldUpdateOperator
+- arrayUpdateOperator
+  - arrayUpdateOperatorModifier
+- deleteDoc
 
 # Kebingungan
 - belajar regex javascript
@@ -30,4 +34,3 @@ Urutan
 - penggunaan $options pada :
   - non case sensitive
   - update doc
-- operator $set
