@@ -4,12 +4,18 @@
 # Akses client terminal base
 ./bin/mongosh "mongodb://localhost:27017/test"
 
-- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [51:35 - BSON]
+- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [01:28:31 - Evaluation Query Operator]
 - Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
 
 Urutan
 - useDatabase
+- collection
+- insertDocument
+- queryDocument
+- comparisonQueryOperator
+- logicalQueryOperator
+- elementQueryOperator
 
 # Kebingungan
-- Siapin gitignore
-- 
+- pada query document, apakah ada pengaruh lower/uppper case pada saat find?
+- update document yang kekurangan field/column (seperti product 1 dan 2 yang tidak ada column category)
