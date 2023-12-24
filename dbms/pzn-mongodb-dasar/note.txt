@@ -4,7 +4,7 @@
 # Akses client terminal base
 ./bin/mongosh "mongodb://localhost:27017/test"
 
-- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [02:51:00 - Bulk Write Operator]
+- https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [03:49:30 - Security]
 - Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
 
 Urutan
@@ -24,13 +24,28 @@ Urutan
 - arrayUpdateOperator
   - arrayUpdateOperatorModifier
 - deleteDoc
+- bulkWriteOperator
+- indexes as singleFieldIndex
+  - compoundIndexes
+- textIndex
+- wildCardIndexes
+- indexProperties as TTLIndex
+  - uniqueIndex
+  - caseInsensitive
+  - partial
+
 
 # Kebingungan
 - belajar regex javascript
 - mongodb json schema
-- beberapa di Text Index
-  - evaluationQueryOperator : $text
-  - projectionOperator : $meta
 - penggunaan $options pada :
   - non case sensitive
   - update doc
+- Balanced Tree Algo (BTREE)
+- insertMany di bulk Operator
+- Pada operator $text di sub bagian index text, hasilnya sort by apa?
+- Pelajari operator $meta selain searchScore, karena selain ini mnggunakan mongoDB premium
+- hasil searchScore dari $meta, di sort by apa? karena jika di code sort manual, tidak bisa
+- Fungsi actual dari TTL TIme To Live (Praktekin)
+- Cari website practice NonSQL seperti sqlpd.com 
+- apa itu softDelete pada bagian partialFilterExpression

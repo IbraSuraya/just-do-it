@@ -1,1 +1,3 @@
 test
+
+- Balanced Tree Algo (BTREE) merupakan teknik struktur data untuk melakukan searching by index pada database (mongoDB, Relational DB)
