@@ -6,3 +6,8 @@
 - [X] Basic MongoDB by - <a href="https://www.youtube.com/@ProgrammerZamanNow" target="_blank">PZN</a>
 - [ ] Basic Kafka by - <a href="https://www.youtube.com/@ProgrammerZamanNow" target="_blank">PZN</a>
 
+### ?
+- [ ] app-attendace
+- [ ] ds-analysis-eCommerce-brazil
+- [ ] mb-kafka-golang
+- [ ] mb-kafka-nodeJS
