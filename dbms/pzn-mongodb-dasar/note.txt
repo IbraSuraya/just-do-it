@@ -1,8 +1,10 @@
 # run server
 ./bin/mongod --dbpath=data
+./bin/mongod --auth --dbpath=data
 
 # Akses client terminal base
-./bin/mongosh "mongodb://localhost:27017/test"
+./bin/mongosh "mongodb://localhost:27017/practice"
+./bin/mongosh "mongodb://mongo:mongo@localhost:27017/practice?authSource=admin"
 
 - https://youtu.be/ICQ6V8u9sSw?si=bkQWdcfNwNx5bIpJ [03:49:30 - Security]
 - Slide : https://docs.google.com/presentation/d/16fRR5Mm-yukMs1h14r5Oszfn-xjL9R6fiKfjzpPevQ0/edit
@@ -33,7 +35,10 @@ Urutan
   - uniqueIndex
   - caseInsensitive
   - partial
-
+- security
+- user
+- role
+- backupRestore
 
 # Kebingungan
 - belajar regex javascript
