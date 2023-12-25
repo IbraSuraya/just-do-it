@@ -1,0 +1,8 @@
+## Membuat topic dengan setting partition
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --create --topic <nama topic> --partitions <number>
+
+## Mengubah partition pada topic yang sudah ada
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --alter --topic <nama topic> --partitions <number>
+
+## Melihat detail topic yang sudah dibuat
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic <nama topic>

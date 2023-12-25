@@ -1,0 +1,10 @@
+# Create topic
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --create --topic helloworld
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --create --topic practice
+
+# Melihat topic
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+# Delete topic [Error]
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --delete --topic practice
+Unable to delete replica practicekafka-0 because the local replica for the partition is in an offline log directory

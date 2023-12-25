@@ -1,0 +1,24 @@
+## mengirim value/data
+./bin/windows/kafka-console-producer.bat --bootstrap-server localhost:9092 --topic practice
+
+## mengirim value/data dengan key partition
+./bin/windows/kafka-console-producer.bat --bootstrap-server localhost:9092 --topic practice --property "parse.key=true" --property "key.separator=:"
+
+## membaca value/data tanpa consumerGroup
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic practice --from-beginning
+
+## tanpa consumerGroup : salah satunya terjadi duplicat primary key
+
+## membaca menggunakan consumerGroup
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic practice --group payment --from-beginning
+
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic practice --group ibra --from-beginning
+
+## membaca menggunakan consumerGroup tanpa from beginning
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic practice --group hasan
+
+## Membaca value/data dengan menampilkan key
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic practice --group hasan --from beginning --property "print.key=true"
+
+## Melihat informasi offset
+./bin/windows/kafka-consumer-groups.bat --bootstrap-server localhost:9092 --all-groups --all-topics --describe

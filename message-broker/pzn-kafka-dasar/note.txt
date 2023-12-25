@@ -1,0 +1,33 @@
+- https://youtu.be/K7bIgpPAdbc?si=1_o7Yi4XmSLS8oKw [DONE, Golang not yet]
+- Materi : https://docs.google.com/presentation/d/130iELJYouuSEmHFUfEmAXi00FuvtFI9633B5Tmj7bwk/edit
+
+- Format Data Directory
+./bin/windows/kafka-storage.bat random-uuid
+./bin/windows/kafka-storage.bat format --cluster-id irNHqC5vSe-Q531F_yqK1w
+--config config/kraft/server.properties
+
+- Start Server
+./bin/windows/kafka-server-start.bat config/kraft/server.properties
+
+Urutan
+- topic (table in sql)
+- producer-offset
+- partitions
+
+Kebingung
+- server 9093 buat apa?
+- gk bisa delete topic, masalah replication
+- Gimana delete value
+- best practice memilih key untuk partitions
+  - bikin key1-key6, dengan setting partition 2
+  - key1 dan key6 untuk partition 0
+  - key2, key3 key4, key5 untuk partition 1
+  - problem : beban server consumer yang ambil partition 1 lebih banyak
+- [NodeJS] : Cara CRDU topic di nodeJS
+- [NodeJS] : Membaca value/data dengan menampilkan key
+- [NodeJS] : Mengakses informasi offset, partition
+- [JAVA] : Menggunakan IntelliJ IDEA karena ada configurasi maven + Duplikat Terminal + Config Java 21
+- [JAVA] : Cara CRDU topic di nodeJS
+- [JAVA] : Membaca value/data dengan menampilkan key
+- [JAVA] : Mengakses informasi offset, partition
+- Kafka scalability dimana server kafka lebih dari 1 (kafka Cluster)
