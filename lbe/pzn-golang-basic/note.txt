@@ -1,0 +1,11 @@
+- https://youtu.be/IO_vkyJnMas?si=rcvnkdLGiuAL2D1K [00:30:31 - Tipe Data Number]
+- Materi : https://docs.google.com/presentation/d/1J0DbqyuLQVnGnkbL7bX3jL6iQc6RdXy8zQkfH8rbE0Q/edit#slide=id.p
+
+Urutan
+- test
+
+Kebingungan
+- Tech based go : Kubernetes, Prometheus, CockroachDB
+- fitur concurrency/Gorotines programming untuk bisa akses multicore processor
+- Materi golang lain : clean-architecture, redis, gorm, fiber, viper, io, modules
+- Bikin module package berbeda, biar bisa lebih dari 1 func main

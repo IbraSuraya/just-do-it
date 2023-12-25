@@ -1,6 +1,9 @@
 ### search products [kenapa POST, karena saat searching kita akan mengirim data parameter juga melalui body]
 POST http://localhost:9200/products/_search
 
+### try Fosward Port
+POST https://wzgnt91t-9200.asse.devtunnels.ms/products/_search
+
 ### search GET
 GET http://localhost:9200/products/_search
 

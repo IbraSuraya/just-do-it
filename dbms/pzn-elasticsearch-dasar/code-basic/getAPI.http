@@ -1,5 +1,5 @@
 ### get customers ibra
-GET http://localhost:9200/customers/_doc/ibra
+GET https://wzgnt91t-9200.asse.devtunnels.ms/customers/_doc/ibra
 
 ### get customers notFound
 GET http://localhost:9200/customers/_doc/notFound
