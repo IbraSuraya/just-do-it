@@ -1,0 +1,13 @@
+- select 0
+- keys *
+- flushdb
+- keys *
+
+- select 0
+- set key01 "Ibra"
+- select 1
+- set key11 "Hasan"
+- flushall
+- get key11
+- select 0
+- get key01

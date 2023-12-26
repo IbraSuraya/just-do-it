@@ -1,0 +1,2 @@
+redis-cli -h localhost -p 6379 -n database --pipe < input-file
+redis-cli -h localhost -p 6379 -n 0 --pipe < data/input-file.txt

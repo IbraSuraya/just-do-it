@@ -1,0 +1,20 @@
+- Bulk banyak perintah dgn syarat semuanya harus berhasil untuk bisa dikatakan success bulk
+
+info 
+- [TX] : sedang dalam mode multi transaction
+- QUEUED : sedang dalam antrian, dan blm di proses
+- jika statusnya dalam QUEUED, tidak bisa di get, karena memang blm ada valuenya. Dia akan muncul setelah exec
+
+- multi
+- set apple "Malang"
+- set samsung "Galaxy"
+- set lenovo "LOQ"
+- exec
+- mget apple samsung lenovo
+
+- multi
+- set satu "1"
+- set dua "2"
+- set tiga "3"
+- discard
+- mget satu dua tiga

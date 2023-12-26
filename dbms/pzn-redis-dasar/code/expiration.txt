@@ -1,0 +1,12 @@
+- get key1
+- expire key1 10
+- ttl key1
+- get key1
+- setex key1 10 "Suraya Hasan Ibra"
+- get key1
+- ttl key1
+- get key1
+
+Meaning Result
+- -1 : tidak ada waktu expiration
+- -2 : tidak ada keys tersebut

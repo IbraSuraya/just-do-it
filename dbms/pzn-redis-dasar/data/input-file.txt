@@ -1,0 +1,4 @@
+set ibra "Ibra Hasan"
+set radit "Muhammad Radityo"
+set maul "Maulana Zuhar"
+set tedi "Teddy Rizki"

@@ -1,0 +1,27 @@
+// contoh proses increDecrement manual di JS+redis
+let value = await redis.get("key")
+value = Number(value) + 1
+await redit.get("key", value)
+
+// Contoh nyatanya saat lebih dari 1 orng beli barang saat bersamaan, diharap stock baranya berkurang sesuai dengan jumlah org yg beli
+
+info
+- khusus value type data number
+- secara default akan membuat value 0, jika keysnya blm ada. Bukan nill, 0 itu value
+- bisa sampe nilai negatif
+
+- incr counter        // 1
+- incr counter        // 2
+- incr counter        // 3
+- get counter         // 3
+- decr counter        // 2  
+- decr counter        // 1
+- get counter         // 1
+- incrby counter 5    // 6
+- incrby counter 5    // 11
+- incrby counter 5    // 16
+- decrby counter 3    // 13
+- decrby counter 3    // 10
+- decrby counter 3    // 7
+- decrby counter 3    // 4
+- get counter         // 4

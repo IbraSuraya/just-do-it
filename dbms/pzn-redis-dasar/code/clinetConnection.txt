@@ -1,0 +1,3 @@
+- client list
+- client id
+- client kill 127.0.0.1:port

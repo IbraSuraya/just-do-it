@@ -1,14 +1,29 @@
-https://youtu.be/5N0fD0GMm2g?si=YctVFd2gtSnLvWPn [00:27:25 - Databases]
+https://youtu.be/5N0fD0GMm2g?si=YctVFd2gtSnLvWPn [01:29:16 - Security]
 Materi : https://docs.google.com/presentation/d/1kDwmRom2R7JioqkUh6mT1ohjy0t1kRQQHR1VwWgT-b0/edit#slide=id.p
 file config : https://github.com/redis/redis/blob/7.2.3/redis.conf
+  - check file conf : database [0 - (n-1)]
+  - select select <nomor database>
 
 sudo -s 
 server : redis-server config/redis.conf
 client : redis-cli -h localhost -p 6379
 
 Urutan
+- string
+- expiration
+- increDecrement
+- flush
+- pipelineBulk
+- transaction
+- monitorServer
+- clinetConnection
 
 kebingungan
 - Redis bisa dijalankan di docker
 - Redis Data Structure
 - Cara input value berupa JSON, XML, or something
+- disini separator default spasi kah?
+- default expiration, saat membuat data tanpa conf waktunya
+- operasi flushall apakah perlu auth super admin?
+- coba client language lain untuk pipelineBulk
+- presisten save

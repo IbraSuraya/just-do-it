@@ -1,0 +1,15 @@
+client 1
+- CRUD biasa
+
+clinet monitor
+- monitor
+
+info
+- port clinet random dalam generator
+
+=============== Server Information ===============
+- info
+- config get databases
+- config get bind
+- config get save
+- config get port
