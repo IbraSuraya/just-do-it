@@ -1,0 +1,7 @@
+File conf
+- bind 192.168.56.1
+- user default on +@connection
+- user ibra on +@all ~* >ibraadmin
+
+Command
+- auth ibra ibraadmin

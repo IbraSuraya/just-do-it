@@ -7,6 +7,8 @@ file config : https://github.com/redis/redis/blob/7.2.3/redis.conf
 sudo -s 
 server : redis-server config/redis.conf
 client : redis-cli -h localhost -p 6379
+          redis-cli -h 192.168.56.1 -p 6379
+          auth ibra ibraadmin
 
 Urutan
 - string
@@ -17,6 +19,9 @@ Urutan
 - transaction
 - monitorServer
 - clinetConnection
+- Security
+- persistence
+- Eviction
 
 kebingungan
 - Redis bisa dijalankan di docker
@@ -27,3 +32,4 @@ kebingungan
 - operasi flushall apakah perlu auth super admin?
 - coba client language lain untuk pipelineBulk
 - presisten save
+- check playlist vlog : kesalahan penguna redis
