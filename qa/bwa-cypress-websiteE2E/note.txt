@@ -8,7 +8,11 @@ Urutan
 
 Kebingungan
 - result test melewati terminal, biar gk berat
-
-- Secara fungsional dan Usability
-- Login/Landing Page
-- Dashboard
+- baca ulang laporan magang
+- PZN mengenai 3 role pengembangan
+- apakah scenario gagal perlu didocumentasi, atau langsung replace yang baru
+- apakah ada contoh scenario negatif untuk pengujian UI Usability
+- hierarcy describe, it, 
+- best practice dalam menentukan delay
+- best practice kebutuhan membuat var, rangkap function
+- cara tetap menjalankan case selanjutnya, bila case sebelumnya terdapat kesalahan [sebenarnya ini gk penting, toh case sebelumnya benerin ajh]
