@@ -9,7 +9,9 @@ ds/dcd-python-analysisData/data
 
 explore/not-yet
 
-lfe/dcd-reactjs-part1/img
+lfe/dcd-reactjs-web-basic/img
+lfe/dcd-reactjs-web-basic/app-contacts/public/imgs
+lfe/dcd-reactjs-web-basic/app-contacts/src/utils
 
 message-broker/pzn-kafka-dasar/server
 message-broker/pzn-kafka-nodeJS/node_modules

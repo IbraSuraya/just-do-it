@@ -1,0 +1,21 @@
+// Pada versi awal (initial public release)
+const MyComponent = createClass({
+  displayName: 'MyComponent',
+  render() {
+    const paragraph = React.createElement('p', null, 'Hello, ' + this.props.name);
+    return React.createElement('div', null, paragraph);
+  }
+});
+
+// Evolusi bergaya ES6
+class MyComponent extends React.Component {
+  render() {
+    const { name } = this.props;
+ 
+    return (
+      <div>
+        <p>Hello, {name}!</p>
+      </div>
+    );
+  }
+}

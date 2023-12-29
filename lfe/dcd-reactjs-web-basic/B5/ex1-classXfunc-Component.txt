@@ -1,0 +1,23 @@
+import React from 'react';
+
+// ======================= class component =======================
+class MyComponent extends React.Component {
+  render() {
+    const { name } = this.props;
+ 
+    return (
+      <div>
+        <p>Hello, {name}!</p>
+      </div>
+    );
+  }
+}
+
+// ======================= functional component ======================= 
+function MyComponent({ name }) {
+  return (
+    <div>
+      <p>Hello, {name}!</p>
+    </div>
+  );
+}

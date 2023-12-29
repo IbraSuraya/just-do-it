@@ -1,0 +1,35 @@
+import React from 'react';
+ 
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+ 
+    // inisialisasi data dalam state
+    this.state = {
+      count: 0
+    };
+  }
+ 
+  render() {
+    return (
+      <div>
+        {/* menampilkan data count */}
+        <p>{this.state.count}</p>
+      </div>
+    );
+  }
+}
+
+// ========== this.setState() dgn param func ==========
+// increase the count value
+this.setState((previousState) => {
+  return {
+    count: previousState.count + 1
+  }
+});
+
+// ========== this.setState() dgn param Obj ==========
+// reset the count value
+this.setState({
+  count: 0
+});

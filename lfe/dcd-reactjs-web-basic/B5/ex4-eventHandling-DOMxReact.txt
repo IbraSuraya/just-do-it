@@ -1,0 +1,9 @@
+// DOM
+<button onclick="increaseValue()">
+  Increase Value
+</button>
+
+// React 
+<button onClick={increaseValue}>
+  Increase Value
+</button>

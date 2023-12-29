@@ -1,0 +1,17 @@
+Sumber : https://www.dicoding.com/academies/403 [B5 - SB6 - LatComponentStatexEventHandling] - Versi Vite Ecosystem
+SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?file=%2Fsrc%2Findex.js%3A66%2C32
+
+- Run localhost : npm run dev
+- build project : npm run build
+
+Urutan
+
+Kebingungan
+- React Native for Mobile dev | React Doom for web dev 
+- cari komunitas react web dan Native
+- Netlify? React VR? WebAssembly?
+- Redux, Jest
+- review materi JS : Promise dan async/await.
+- Jest : Framework testing for JS or React
+- Coba code B3 di env react
+- Kombinasi func x class component di dalam komposisi yang sama
