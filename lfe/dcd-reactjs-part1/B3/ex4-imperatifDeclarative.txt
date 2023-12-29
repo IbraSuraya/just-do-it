@@ -1,0 +1,26 @@
+// kode imperatif yang umum dituliskan di JavaScript adalah penggunaan for
+const names = ['Asep', 'Alex', 'Bagus', 'Cika', 'Doni'];
+const uppercaseNames = [];
+for (let i = 0; i < names.length; i++) {
+  uppercaseNames[i] = names[i].toUpperCase();
+}
+console.log(uppercaseNames);
+
+// kode deklaratif yang umum dituliskan di react adalah penggunaan map
+const names = ['Asep', 'Alex', 'Bagus', 'Cika', 'Doni'];
+const uppercaseNames = names.map((name) => name.toUpperCase());
+console.log(uppercaseNames);
+
+// Contoh lain deklaratif react terhadap tag html dengan component
+function Contacts() {
+ const names = ['Asep', 'Alex', 'Bagus', 'Cika', 'Doni'];
+ return (
+   <ol className='contacts'>
+     {names.map((name) => <li>{name}</li>)}
+   </ol>
+ );
+}
+export default Contacts;
+
+// Contoh lain deklaratif react terhadap crate event element
+<button onClick={callContact}>Call Contact</button>

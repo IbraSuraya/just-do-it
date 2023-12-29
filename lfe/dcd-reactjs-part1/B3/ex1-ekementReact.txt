@@ -1,0 +1,11 @@
+// contoh dari objek React element paragraf.
+{
+  type: 'p',
+  props: {
+    className: 'p-blue',
+    children: 'Content of paragraph.',
+  },
+ }
+
+ // Sama dengan
+ <p class="p-blue">Content of paragraph.</p>

@@ -1,0 +1,56 @@
+// Definisi compositon : menggabungkan banyak fungsi for create kompleksitas data. Contoh 
+function getProfilePicture(userId) {
+ return `https://avatars.githubusercontent.com/u/${userId}`;
+}
+
+function getProfileLink(username) {
+ return `https://github.com/${username}`;
+}
+
+
+function getGithubInfo(username, userId) {
+ return {
+   profilePicture: getProfilePicture(userId),
+   profileLink: getProfileLink(username),
+ };
+}
+
+console.log(getGithubInfo('dimasmds', 25724809));
+
+// ====================================================================
+// compositon react dapat terjadi di component
+multiFile : [
+  {
+    githubInfo.js :
+      function ProfilePicture({ userId }) {
+        return (
+          <img
+            src={"https://avatars.githubusercontent.com/u/" + userId}
+            alt="GitHub Profile"
+          />
+        );
+      }
+
+      function ProfileLink({ username }) {
+        return <a href={"https://github.com/" + username}>{username}</a>;
+      }
+
+      function GithubInfo({ username, userId }) {
+        return (
+          <div className="github-info">
+            <ProfilePicture userId={userId} />
+            <ProfileLink username={username} />
+          </div>
+        );
+      }
+
+      export default GithubInfo;
+  },{
+    app.js : 
+      import GithubInfo from "./GithubInfo";
+
+      export default function App() {
+        return <GithubInfo username={"dimasmds"} userId={25724809} />;
+      }
+  }
+]

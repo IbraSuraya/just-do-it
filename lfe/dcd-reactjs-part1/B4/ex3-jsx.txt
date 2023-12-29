@@ -1,0 +1,38 @@
+// contoh dari sintaksis JSX:
+const element = <p>Hello, React!</p>; 
+const element = <p className="red-paragraph">Hello, React!</p>;
+
+// Contoh dalam createElement biasa
+const element = React.createElement(
+  'p',
+  {
+    className: 'red-paragraph',
+  },
+  'Hello, React!',
+);
+
+// Contoh penulisan expression di JSX.
+const name = 'Dicoding';
+const element = <p>Hello, {name}</p>;
+
+// Object elementnya
+{
+  type: 'p',
+  props: {
+    children: ['Hello, ', 'Dicoding']
+  }
+}
+
+// Contoh JSX dalam Nested
+const divContainer = (
+  <div className="container">
+    <h1>React</h1>
+    <p>The <strong>best tool</strong> for building UI</p>
+  </div>
+);
+
+// Contoh pada createElement
+const heading = React.createElement('h1', null, 'React');
+const strong = React.createElement('strong', null, 'best tool');
+const paragraph = React.createElement('p', null, ['The ', strong, ' for building UI'])
+const divContainer = React.createElement('div', { className: 'container' }, [heading, paragraph]);

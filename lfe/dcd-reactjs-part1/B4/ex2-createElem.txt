@@ -1,0 +1,43 @@
+// Bentuk Form
+- React.createElement(/* type */, /* property */, /* content */);
+
+// Penjelasan
+- type yang merupakan tipe elemen, 
+- property merupakan properti dari elemen, dan
+- content merupakan konten dari elemen.
+
+// Contoh
+- const element = React.createElement('p', null, 'Hello, React!');
+
+// Nilai Kembalian
+{
+  type: 'p',
+  props: {
+    children: 'Hello, React!',
+  },
+}
+
+// Contoh penggunaan parameter 2 : property
+const element = React.createElement(
+  'p',
+  {
+    id: 'myParagraph',
+    className: 'red-paragraph'
+  },
+  'Hello, React!'
+);
+
+// ================== Nested React Elemen ==================
+// Contoh dalam html
+<div class="container">
+  <h1>React</h1>
+  <p>The <strong>best tool</strong> for building UI</p>
+</div>
+
+// Contoh react
+import React from 'react';
+const divContainer = React.createElement('div', { className: 'container' }, [heading, paragraph]);
+const heading = React.createElement('h1', null, 'React');
+const paragraph = React.createElement('p', null, ['The ', strong, ' for building UI']);
+const strong = React.createElement('strong', null, 'best tool');
+export default divContainer;

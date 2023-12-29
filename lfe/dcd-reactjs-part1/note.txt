@@ -1,0 +1,12 @@
+Sumber : https://www.dicoding.com/academies/403 [B4 - SB13 - React Project] - Versi Vite Ecosystem
+
+Urutan
+
+Kebingungan
+- React Native for Mobile dev | React Doom for web dev 
+- cari komunitas react web dan Native
+- Netlify? React VR? WebAssembly?
+- React Router, Redux, Jest, Vite
+- review materi JS : Promise dan async/await.
+- Jest : Framework testing for JS or React
+- Coba code B3 di env react

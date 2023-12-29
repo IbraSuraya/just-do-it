@@ -1,1 +1,11 @@
 test
+
+- Algo : A* pathfinding [Game] : NPC routing
+- QA Akbar
+  - Run regression testing to ensure old feature not impacted with new updates deployment
+  - Maintenance application in staging, beta, and production environment
+  - automation testing for system daily health
+  - using silk test VB.Net, appium
+  - Databases testing 
+- Detection Outlier : Z-Score, IQR, Isolation Forest, Local Outlier Factor (LOF), One-Class SVM, DBScan
+- 

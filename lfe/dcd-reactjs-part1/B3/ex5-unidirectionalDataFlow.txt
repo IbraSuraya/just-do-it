@@ -1,0 +1,13 @@
+// Unidirectional Data Flow di react 
+// Contoh kasus
+<Delivery>
+  <LocationPicker>
+    <OriginPicker />
+    <DestinationPicker />
+  </LocationPicker>
+  <input type="number"/>
+</Delivery>
+
+// Penjelasan Data Flownya (Satu Arah -> Hanya parent ke child)
+* Delivery: Karena komponen Delivery merupakan parent dan ia menampung seluruh child component yang membentuk antarmuka pengiriman maka hanya komponen delivery yang cocok untuk memiliki seluruh data pengiriman dan juga bertanggung jawab untuk memperbaruinya.
+* LocationPicker:  Walaupun LocationPicker menerima data dari induknya, ternyata ia juga merupakan parent component dan sangat masuk akal bila menampung data yang dibutuhkan oleh kedua child component di dalamnya.

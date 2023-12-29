@@ -1,0 +1,12 @@
+// Perbandingan code dalam proses pengulangan array
+// di Vue JS (bikin function baru : v-for)
+<ul id="contacts">
+  <li v-for="contact in contacts">{{ contact }}</li>
+</ul>
+
+// Sedangakn react menggunakan fungsi bawaan JS yaitu map
+<ul>
+  {contacts.map((contact) => (
+    <li>{contact}</li>
+  ))}
+</ul>
