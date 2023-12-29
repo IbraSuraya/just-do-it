@@ -15,3 +15,6 @@ Currently, two official plugins are available:
 3. ContactItem (hijau) : Sebagai container dalam menampilkan item contact.
 4. ContactItemImage (biru) : Menampilkan gambar contact.
 5. ContactItemBody (ungu) : Menampilkan data nama dan tag sosial media dari kontak.
+
+## Contact App V2
+<img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:0149b3a89bd671e90b0f9035b989ed6520220419131532.gif" width=300 ><br/>

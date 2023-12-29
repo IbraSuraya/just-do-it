@@ -1,0 +1,28 @@
+// Solusi jika kondisi membutuhkan kembalian 1 elemen, tp div gk berfungsi banyak
+// Before
+render() {
+  return (
+    <h1>Hello, Dicoding</h1>
+    <p>Today is a great day!</p>
+  )
+}
+
+// After
+render() {
+  return (
+    <React.Fragment>
+      <h1>Hello, Dicoding</h1>
+      <p>Today is a great day!</p>
+    </React.Fragment>
+  )
+}
+
+// Another Way 
+render() {
+  return (
+    <>
+      <h1>Hello, Dicoding</h1>
+      <p>Today is a great day!</p>
+    </>
+  )
+}

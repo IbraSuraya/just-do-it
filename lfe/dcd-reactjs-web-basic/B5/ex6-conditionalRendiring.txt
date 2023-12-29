@@ -1,0 +1,39 @@
+// Angular
+<h1 *ngIf="authed; else elseBlock">Welcome back!</h1>
+<ng-template #elseBlock>
+  <h1>Login to see your dashboard</h1>
+</ng-template>
+
+// Vue 
+<h1 v-if="authed">Welcome back!</h1>
+<h1 v-else>Login to see your dashboard</h1>
+
+// React dengan if else 
+render() {
+  const authed = isAuthed()
+ 
+  if (authed) {
+    return <h1>Welcome back!</h1>
+  } else {
+    return <h1>Login to see your dashboard</h1>
+  }
+}
+
+// React dengan tenary operator
+render() {
+  return isAuthed()
+    ? <h1>Welcome back!</h1>
+    : <h1>Login to see your dashboard</h1>
+}
+
+// React dengan JSX + expression di dalam tanda kurung kurawal.
+render() {
+  return (
+    <div>
+      <Logo />
+      {isAuthed() === true
+        ? <h1>Welcome back!</h1>
+        : <h1>Login to see your dashboard</h1>}
+    </div>
+  )
+}
