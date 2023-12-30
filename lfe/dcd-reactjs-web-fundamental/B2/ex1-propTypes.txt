@@ -1,0 +1,122 @@
+// Install : npm install prop-types
+import PropTypes from 'prop-types';
+
+// Func component
+function SayHello({ name }) {
+  return <p>Hello, {name}</p>;
+}
+
+// Class component
+class SayHello extends React.Component {
+  render() {
+    const { name } = this.props;
+    return <p>Hello, {name}</p>;
+  }
+}
+
+// PropTypes STRING untuk func component dan class component
+SayHello.propTypes = { name: PropTypes.string.isRequired };
+
+r.render(<SayHello />);   // ERROR :  Warning: Failed prop type: The prop `name` is marked as required in `SayHello`, but its value is `undefined`
+r.render(<SayHello name={[]} />); // ERROR : X Invalid prop `name` of type `array` supplied to `SayHello`, expected `string`.
+
+// ================= NUMBER =================
+function CounterDisplay({ count }) {
+  return <p>Antrean ke-{count}</p>;
+}
+CounterDisplay.propTypes = { count: PropTypes.number };
+
+<CounterDisplay count={1} />; // Antrean ke-1
+<CounterDisplay count={true} />; // Warning: X `boolean` expected `number`.
+<CounterDisplay count="1" />; // Warning: X `string` expected `number`.
+
+// ================= BOOL =================
+function Lamp({ isDark }) {
+  if (isDark) return <p>Lamp is on</p>;
+  return <p>Lamp is off</p>;
+}
+Lamp.propTypes = { isDark: PropTypes.bool };
+ 
+<Lamp isDark={true} />; // Lamp is on
+<Lamp isDark={1 === 1} />; // Lamp is on
+<Lamp isDark="true" />; // Warning : `isDark` of type `string` supplied to `Lamp`, expected `boolean`
+
+// ================= Array =================
+function List({ data }) {
+  return (
+    <ul>
+      {data.map((item) => ( <li key={item}>{item}</li> ))}
+    </ul>
+  );
+}
+List.propTypes = { data: PropTypes.array };
+ 
+<List data={['Strawberi', 'Mangga', 'Apel']} />; // Works!
+<List data={['Strawberi', 1, true]} />; // Works!
+
+// ================= arrayOf =================
+function List({ data }) {
+  return (
+    <ul>
+      {data.map((item) => ( <li key={item}>{item}</li> ))}
+    </ul>
+  );
+}
+List.propTypes = { data: PropTypes.arrayOf(PropTypes.string) };
+ 
+<List data={['Strawberi', 'Mangga', 'Apel']} />; // Works!
+<List data={['Strawberi', 1, true]} />; // Warning: data[1]` of type `number` supplied to `List`, expected `string`.
+
+// ================= Object =================
+function Company({ data }) {
+  const { name, city, since } = data;
+  return (
+    <div>
+      <p>Nama: {name}</p>
+      <p>Kota: {city}</p>
+      <p>Sejak: {since}</p>
+    </div>
+  );
+}
+Company.propTypes = { data: PropTypes.object };
+ 
+<Company data={{
+  name: 'Dicoding',
+  city: 'Bandung',
+  since: 2005,
+}} />; // Works!
+
+// ================= objectOf =================
+List.propTypes = { score: PropTypes.objectOf(PropTypes.number) };
+ 
+<List
+  score={{
+    John: 90,
+    Jane: 80,
+    Tom: 75
+  }} />; // Works!
+
+// ================= func : fungsi handler =================
+function AddFriendButton({ onAdd }) { // ... }
+AddFriendButton.propTypes = { onAdd: PropTypes.func };
+ 
+<AddFriendButton onAdd={() => alert('Friend added')} />; // Works!
+
+// ================= instanceOf =================
+class User {
+  constructor(name) { this.name = name; }
+  // ...
+}
+function NavigationHeader({ user }) { // ... }
+NavigationHeader.propTypes = { ser: PropTypes.instanceOf(User) };
+ 
+<NavigationHeader user={new User('Dicoding')} />; // Works!
+<NavigationHeader user={{ name: 'Dicoding' }} />; // Warning: `user` of type `Object` supplied to `NavigationHeader`, expected instance of `User`. at NavigationHeader
+
+// ================= oneOf =================
+function Screen({ mode }) { // ... }
+Screen.propTypes = { mode: PropTypes.oneOf(['light', 'dark']) };
+ 
+<Screen mode="light" />; // Works!
+<Screen mode="dark" />; // Works!
+<Screen mode="default" />; // Warning: `mode` of value `default` supplied to `Screen`, expected one of ["light","dark"]. at Screen

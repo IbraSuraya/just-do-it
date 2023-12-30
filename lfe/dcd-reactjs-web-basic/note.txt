@@ -1,4 +1,4 @@
-Sumber : https://www.dicoding.com/academies/403 [B5 - SB6 - LatComponentStatexEventHandling] - Versi Vite Ecosystem
+Sumber : https://www.dicoding.com/academies/403 [Done] - Versi Vite Ecosystem
 SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?file=%2Fsrc%2Findex.js%3A66%2C32
 
 - create project vite : npm create vite
@@ -8,8 +8,6 @@ SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?
 - install package node : npm install
 - Run localhost : npm run dev
 - build project : npm run build
-
-Urutan
 
 Kebingungan
 - React Native for Mobile dev | React Doom for web dev 

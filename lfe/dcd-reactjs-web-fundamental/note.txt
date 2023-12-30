@@ -1,0 +1,17 @@
+Sumber : https://www.dicoding.com/academies/413 [B - SB - X] - Versi Vite Ecosystem
+SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?file=%2Fsrc%2Findex.js%3A66%2C32
+
+- create project vite : npm create vite
+  - Project name -> contacts-app
+  - Select a framework -> React
+  - Select a variant -> JavaScript
+- install package node : npm install
+- Run localhost : npm run dev
+- build project : npm run build
+
+Urutan
+
+Kebingungan
+- pasca-cetak (componentDidMount) pada lifecycle react component
+- selain viteJS sebagai solusi framework, pelajari typescript sebagai solusi js lama
+- FLOW IS A STATIC TYPE CHECKER FOR JAVASCRIPT
