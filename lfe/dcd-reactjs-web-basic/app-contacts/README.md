@@ -15,24 +15,61 @@
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-0lax">Component</th>
-    <th class="tg-0lax">Props</th>
-    <th class="tg-0lax">Type Data</th>
-    <th class="tg-0lax">Required</th>
+    <th class="tg-0pky">Component</th>
+    <th class="tg-0pky">Props</th>
+    <th class="tg-0pky">Type Data</th>
+    <th class="tg-0pky">Required</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0lax">ContactInput</td>
-    <td class="tg-0lax">addContact</td>
-    <td class="tg-0lax">func</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky">ContactInput</td>
+    <td class="tg-0pky">addContact</td>
+    <td class="tg-0pky">func</td>
+    <td class="tg-0pky">yes</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="5">ContactItem</td>
-    <td class="tg-0lax">imageUrl</td>
-    <td class="tg-0lax">string</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky" rowspan="5">ContactItem</td>
+    <td class="tg-0pky">imageUrl</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">name</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">tag</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">id</td>
+    <td class="tg-0pky">number</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">onDelete</td>
+    <td class="tg-0pky">func</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="2">ContactItemBody</td>
+    <td class="tg-0pky">name</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">tag</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" rowspan="2">ContactItemImage</td>
+    <td class="tg-0pky">imageUrl</td>
+    <td class="tg-0pky">string</td>
+    <td class="tg-0pky">yes</td>
   </tr>
   <tr>
     <td class="tg-0lax">name</td>
@@ -40,58 +77,26 @@
     <td class="tg-0lax">yes</td>
   </tr>
   <tr>
-    <td class="tg-0lax">tag</td>
-    <td class="tg-0lax">string</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky" rowspan="2">ContactList</td>
+    <td class="tg-0pky">contacts</td>
+    <td class="tg-0pky">array of obj</td>
+    <td class="tg-0pky">yes</td>
   </tr>
   <tr>
-    <td class="tg-0lax">id</td>
-    <td class="tg-0lax">number</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky">onDelete</td>
+    <td class="tg-0pky">func</td>
+    <td class="tg-0pky">yes</td>
   </tr>
   <tr>
-    <td class="tg-0lax">onDelete</td>
-    <td class="tg-0lax">func</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky" rowspan="2">DeleteButton</td>
+    <td class="tg-0pky">id</td>
+    <td class="tg-0pky">number</td>
+    <td class="tg-0pky">yes</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="2">ContactItemBody</td>
-    <td class="tg-0lax">name</td>
-    <td class="tg-0lax">string</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">tag</td>
-    <td class="tg-0lax">string</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">ContactItemImage</td>
-    <td class="tg-0lax">imageUrl</td>
-    <td class="tg-0lax">string</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2">ContactList</td>
-    <td class="tg-0lax">contacts</td>
-    <td class="tg-0lax">array of obj</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">onDelete</td>
-    <td class="tg-0lax">func</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2">DeleteButton</td>
-    <td class="tg-0lax">id</td>
-    <td class="tg-0lax">number</td>
-    <td class="tg-0lax">yes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">onDelete</td>
-    <td class="tg-0lax">func</td>
-    <td class="tg-0lax">yes</td>
+    <td class="tg-0pky">onDelete</td>
+    <td class="tg-0pky">func</td>
+    <td class="tg-0pky">yes</td>
   </tr>
 </tbody>
 </table>

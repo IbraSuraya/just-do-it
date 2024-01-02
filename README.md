@@ -18,4 +18,10 @@
 - [ ] app-attendace
 - [ ] ds-analysis-eCommerce-brazil
 - [ ] mb-kafka-golang
-- [ ] project akhir React basic for Web Dev
+- [ ] project akhir - React basic for Web Dev
+- [ ] ATM app-contact - React DCD 
+- [ ] ATM app-movie - React DCD 
+
+
+### Minus
+- 3 Days

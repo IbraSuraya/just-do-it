@@ -1,0 +1,34 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Link } from "react-router-dom";
+
+## React Router Components
+# BrowserRouter 
+const root = createRoot(document.getElementById('root'));
+root.render(
+ <BrowserRouter>
+   {/* The rest of your app goes here */}
+ </BrowserRouter>
+);
+
+# Link
+function UsersIndexPage({ users }) {
+  return (
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={user.id}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+# Routes dan Route : Solusi penggunaan if else
+<Routes>
+  <Route path="/" element={<Dashboard />} />
+  <Route path="/about" element={<AboutPage />} />
+</Routes>

@@ -1,0 +1,37 @@
+import React from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+
+# Path
+## Penggunaan
+<Routes>
+  <Route path="/company/:name" element={<CompanyDetailPage />} />
+</Routes>
+
+### useParams()
+function CompanyDetailPage() {
+  const params = useParams();
+  // Lebih ringkas dengan destructuring Object
+  const { name } = useParams();
+
+  return <p>Selamat datang di halaman perusahaan {params.name}</p>;
+}
+
+# Query
+## useSearchParams()
+function CompanySearchPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+ 
+  const name = searchParams.get('name');
+  const location = searchParams.get('location');
+
+  // contoh, mengatur query name dengan nilai baru
+  function updateNameUrlSearchParams(newValue) {
+    setSearchParams({ name: newValue });
+  }
+ 
+  return (
+    <p>
+      Mencari perusahaan {name} di {location}
+    </p>
+  );
+}

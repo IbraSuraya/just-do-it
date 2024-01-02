@@ -1,4 +1,4 @@
-Sumber : https://www.dicoding.com/academies/413 [B - SB - X] - Versi Vite Ecosystem
+Sumber : https://www.dicoding.com/academies/413 - Versi Vite Ecosystem
 SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?file=%2Fsrc%2Findex.js%3A66%2C32
 
 - create project vite : npm create vite
@@ -9,9 +9,17 @@ SandBox : https://codesandbox.io/p/sandbox/dicoding-react-starter-forked-3rmnhg?
 - Run localhost : npm run dev
 - build project : npm run build
 
-Urutan
+Urutan app-practice
+- main.jsx : main component di index.html
+- App.jsx : component untuk kontrol pergantian materi
+- B2 : Pract1PropType.jsx
+- B3 : Pract2SimpleSPA.jsx
+  - ./SimpleSPA/*
+- B3 : Pract3ReactRouterSPA.jsx
+- B3 : Pract4PathQuery.jsx
 
 Kebingungan
 - pasca-cetak (componentDidMount) pada lifecycle react component
 - selain viteJS sebagai solusi framework, pelajari typescript sebagai solusi js lama
 - FLOW IS A STATIC TYPE CHECKER FOR JAVASCRIPT
+- Single Page Application sistematika

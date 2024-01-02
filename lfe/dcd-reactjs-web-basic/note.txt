@@ -16,7 +16,5 @@ Kebingungan
 - Redux, Jest
 - review materi JS : Promise dan async/await.
 - Jest : Framework testing for JS or React
-- Coba code B3 di env react
-- Kombinasi func x class component di dalam komposisi yang sama
 - if else di bagian app-fizzBuzz/counterDisplay dibuat ringkas + bikin classname tiap componentnya dengan aturan khusus
 - spread operator = ...prevState
