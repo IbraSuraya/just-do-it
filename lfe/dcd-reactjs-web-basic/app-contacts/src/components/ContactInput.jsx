@@ -33,10 +33,10 @@ class ContactInput extends React.Component {
   render() {
     return (
       <form className='contact-input' onSubmit={this.onSubmitEventHandler}>
-        <label id="nameInput" htmlFor="name">Name: </label>
+        <span id="nameInput" htmlFor="name">Name: </span>
         <input name="nameInput" id='nameInput' type="text" placeholder="Nama" value={this.state.name} onChange={this.onNameChangeEventHandler}/>
         
-        <label id="tagInput" htmlFor="tag">Tag: </label>
+        <span id="tagInput" htmlFor="tag">Tag: </span>
         <input name="tagInput" id='tagInput' type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHandler}/>
         
         <button type="submit">Tambah</button>
