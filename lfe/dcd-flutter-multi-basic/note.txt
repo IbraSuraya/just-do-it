@@ -1,5 +1,22 @@
 Sumber : https://www.dicoding.com/academies/159/
 
+- check env : view/command palette/flutter doctor
+- create proj : view/command palette/new project
+- conf env android physic
+  - 10x Tap ini Build Number for enable developer mode
+  - enable USB Debugging Mode
+  - enable install via USB
+- Run Debug in Mobile
+  - Select device dikanan bawah
+  - run/start Debugging
+- conf env run debug web
+  - flutter config --enable-web
+  - flutter create .
+- Run debug in web
+  - select device dikanan bawah : chrome (web)
+  - flutter run -d chrome --web-renderer html
+  - flutter run -d chrome --web-renderer canvaskit
+
 Urutan 
 
 Kebingungan

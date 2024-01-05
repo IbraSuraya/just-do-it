@@ -1,0 +1,52 @@
+// Format
+class ContohStateful extends StatefulWidget {
+ 
+    final String parameterWidget; // ini parameter widget
+ 
+    const ContohStateful({Key? key, required this.parameterWidget}) : super(key: key);
+ 
+    @override
+    _ContohStatefulState createState() => _ContohStatefulState();
+}
+ 
+class _ContohStatefulState extends State<ContohStateful>{
+    String _dataState; // ini state dari Widget ContohStateful
+ 
+    @override
+    Widget build(BuildContext context){
+        // isi sebuah widget
+    }
+}
+
+// Contoh 
+class BiggerText extends StatefulWidget {
+  final String text;
+ 
+  const BiggerText({Key? key, required this.text}) : super(key: key);
+ 
+  @override
+  _BiggerTextState createState() => _BiggerTextState();
+}
+ 
+ 
+class _BiggerTextState extends State<BiggerText> {
+  double _textSize = 16.0;
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(widget.text, style: TextStyle(fontSize: _textSize)),
+        ElevatedButton(
+          child: const Text("Perbesar"),
+          onPressed: () {
+            setState(() {
+              _textSize = 32.0;
+            });
+          },
+        )
+      ],
+    );
+  }
+}
