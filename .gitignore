@@ -19,3 +19,5 @@ message-broker/pzn-kafka-nodeJS/node_modules
 
 qa/bwa-cypress-websiteE2E/Assets
 qa/bwa-cypress-websiteE2E/testing/node_modules
+qa/bwa-cypress-API/Assets
+qa/bwa-cypress-API/Testing/node_modules

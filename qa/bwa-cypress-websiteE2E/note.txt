@@ -2,7 +2,10 @@
 - Doc Manual : https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQz8--3VwpooSBtlJ3ZEgMpWuw5xWqSc9S831FJFcsF5HCZFRrkxNTsGIwtE112dOZ0JDAbENryyN6_/pubhtml#
 
 - Run Apps : serve -s build
-- Run Test : npx cypress open
+- Run Test : 
+  npm init
+  npm install cypress --save-dev
+  npx cypress open
 
 Urutan
 

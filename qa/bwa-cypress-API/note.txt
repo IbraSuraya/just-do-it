@@ -1,0 +1,14 @@
+- CP : https://class.buildwithangga.com/course-playing/Dz6pbzVpJR/1
+- Doc Manual : 
+
+- Run Apps : yarn start
+- Run Test : yarn run cypress open
+
+Urutan
+
+Kebingungan
+- Katalon itu basenya java
+- Pelajarin kode cypress contoh [1-getStart 2-advancedExample]
+
+Cyprss code
+- 

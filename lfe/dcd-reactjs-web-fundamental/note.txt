@@ -23,3 +23,5 @@ Kebingungan
 - selain viteJS sebagai solusi framework, pelajari typescript sebagai solusi js lama
 - FLOW IS A STATIC TYPE CHECKER FOR JAVASCRIPT
 - Single Page Application sistematika
+- Bedah Project React dari QA bwa, karena pake .tsx
+- Bedah Project React dari QA bwa API, karena penasaran bikin REST API dari react
