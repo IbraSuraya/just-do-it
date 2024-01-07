@@ -3,6 +3,7 @@
 
 - Run Apps : yarn start
 - Run Test : yarn run cypress open
+- Install depedencies : yarn add @faker-js/faker
 
 Urutan
 
@@ -11,6 +12,5 @@ Kebingungan
 - Pelajarin kode cypress contoh [1-getStart 2-advancedExample]
 - Case ini dibikin document excelnya
 - bikin menjadi clean code
-
-Cyprss code
-- 
+- minta di telegram, ke kawan2 yg lain project API yang bisa ditesting
+- beneran harus baca dokumentasi cypress, banyak hal yang gk dibahas di tutorial
