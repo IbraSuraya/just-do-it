@@ -38,7 +38,8 @@ Cypress.Commands.add('badRequest400', (response, messages = []) => {
   })
 })
 
-// Cypress.Commands.add("unauthorized", (response) => {
-//   expect(response.status).to.eq(401)
-//   expect(response.body.message).to.eq('Unauthorized')
-// })
+Cypress.Commands.add("unauthorized401", (response) => {
+  expect(response.status).to.eq(401)
+  expect(response.duration).to.be.lessThan(100)
+  expect(response.body.message).to.eq('Unauthorized')
+})

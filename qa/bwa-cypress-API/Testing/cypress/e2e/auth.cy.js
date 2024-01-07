@@ -7,7 +7,7 @@ describe('Auth module', () => {
 
   context('EP-Register', () => {
     // CASE 1
-    it('CASE 1 Should return error message for validation', () => {
+    it('C-1 Should return error message for validation', () => {
       cy.request({
         method: 'POST',
         url: '/auth/register',
@@ -22,7 +22,7 @@ describe('Auth module', () => {
     })
 
     // CASE 2
-    it('CASE 2 should return error message for invalid email format', () => {
+    it('C-2 should return error message for invalid email format', () => {
       cy.request({
         method: 'POST',
         url: '/auth/register',
@@ -38,7 +38,7 @@ describe('Auth module', () => {
     })
 
     // CASE 3
-    it('CASE 3 should return error message for invalid password format', () => {
+    it('C-3 should return error message for invalid password format', () => {
       cy.request({
         method: 'POST',
         url: '/auth/register',
@@ -54,7 +54,7 @@ describe('Auth module', () => {
     })
 
     // CASE 4
-    it('CASE 4 should successfully registered', () => {
+    it('C-4 should successfully registered', () => {
       // Reset akun registered
       cy.resetUsers()
       cy.request({
@@ -78,7 +78,7 @@ describe('Auth module', () => {
     })
 
     // CASE 5
-    it('CASE 5 should return error, because of duplicate email', () => {
+    it('C-5 should return error, because of duplicate email', () => {
       cy.request({
         method: 'POST',
         url: '/auth/register',
@@ -89,6 +89,54 @@ describe('Auth module', () => {
         expect(response.duration).to.be.lessThan(10)
         expect(response.body.message).to.eq("Email already exists")
         expect(response.body.success).to.be.false
+      })
+    })
+  })
+
+  context.only('EP-Login', () => {
+    // 1. Unathorized on failed without data body
+    // 2. Unathorized on failed with invalid password
+    // 3. Return access token on success
+
+    // CASE 1
+    it("C-1 Should return unauthorized on failed, because of without data body", () => {
+      cy.request({
+        method: 'POST',
+        url: "/auth/login",
+        failOnStatusCode: false,
+      }).then((response) => {
+        cy.unauthorized401(response)
+      })
+    })
+
+    // CASE 2
+    it("C-2 Should return unauthorized on failed, because of invalid password", () => {
+      cy.request({
+        method: 'POST',
+        url: "/auth/login",
+        body: {
+          email: userData.email,
+          password: "invalid passwo1"
+        },
+        failOnStatusCode: false,
+      }).then((response) => {
+        cy.unauthorized401(response)
+      })
+    })
+
+    // CASE 3
+    it("C-3 should return access token on success", () => {
+      cy.request({
+        method: 'POST',
+        url: "/auth/login",
+        body: {
+          email: userData.email,
+          password: userData.password,
+        },
+      }).then((response) => {
+        expect(response.body.success).to.be.true
+        expect(response.body.message).to.eq('Login success')
+        expect(response.body.data.access_token).not.to.be.undefined
       })
     })
   })
