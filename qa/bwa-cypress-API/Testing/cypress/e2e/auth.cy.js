@@ -70,8 +70,8 @@ describe('Auth module', () => {
         // Cek data yang dikirim
         const{id, name, email, password, role} = response.body.data
         expect(id).not.to.be.undefined
-        expect(name).to.eq("John Doe")
-        expect(email).to.eq("john@nest.test")
+        expect(name).to.eq(userData.name)
+        expect(email).to.eq(userData.email)
         expect(password).to.be.undefined
         expect(role).to.eq('member')
       })
@@ -93,10 +93,10 @@ describe('Auth module', () => {
     })
   })
 
-  context.only('EP-Login', () => {
-    // 1. Unathorized on failed without data body
-    // 2. Unathorized on failed with invalid password
-    // 3. Return access token on success
+  context('EP-Login', () => {
+    // 1. - Unathorized on failed without data body
+    // 2. - Unathorized on failed with invalid password
+    // 3. + Return access token on success
 
     // CASE 1
     it("C-1 Should return unauthorized on failed, because of without data body", () => {
@@ -137,6 +137,41 @@ describe('Auth module', () => {
         expect(response.body.success).to.be.true
         expect(response.body.message).to.eq('Login success')
         expect(response.body.data.access_token).not.to.be.undefined
+      })
+    })
+  })
+
+  context('EP-Me', () => {
+    // 1. - error unauthorized
+    // 2. + return correct current data
+
+    before('do login with account John', () => {
+      cy.loginJohn()
+    })
+
+    // CASE 1
+    it('C-1 should return unauthorized when send no token', () => {
+      cy.checkUnauthorized('GET', '/auth/me')
+    })
+    
+    // CASE 2
+    it('C-2 should return correct current data', () => {
+      cy.request({
+        method: 'GET',
+        url: '/auth/me',
+        headers: {
+          authorization: `Bearer ${Cypress.env('token')}`,
+        },
+        failOnStatusCode: false,
+      }).then((response) => {
+        const { id, name, email, password, role } = response.body.data
+        expect(response.status).to.eq(200)
+        expect(response.body.success).to.be.true
+        expect(id).not.to.be.undefined
+        expect(name).to.eq(userData.name)
+        expect(email).to.eq(userData.email)
+        expect(password).to.be.undefined
+        expect(role).to.eq('member')
       })
     })
   })
