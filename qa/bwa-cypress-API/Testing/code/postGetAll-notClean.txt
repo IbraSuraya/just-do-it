@@ -1,0 +1,45 @@
+// CASE 2
+it('C-2 should return correct count and data', () => {
+  cy.fixture('data_posts').then((data) => {
+    // Reset all data
+    cy.request({
+      method: 'DELETE',
+      url: '/posts/reset',
+      headers: {
+        authorization: `Bearer ${Cypress.env('token')}`,
+      },
+    })
+
+    // Create nPost data
+    data.forEach(_data => {
+      cy.request({
+        method: 'POST',
+        url: '/posts',
+        headers: {
+          authorization: `Bearer ${Cypress.env('token')}`,
+        },
+        body: {
+          title: _data.title,
+          content: _data.content,
+        },
+      })
+    })
+    cy.request({
+      method: 'GET',
+      url: '/posts',
+      headers: {
+        authorization: `Bearer ${Cypress.env('token')}`,
+      },
+    }).then(response => {
+      expect(response.status).to.eq(200)
+      expect(response.body.success).to.true
+      expect(response.body.data.length).to.eq(data.length)
+
+      data.forEach((_post, index) => {
+        expect(response.body.data[index].id).to.eq(index + 1)
+        expect(response.body.data[index].title).to.eq(_post.title)
+        expect(response.body.data[index].content).to.eq(_post.content)
+      })
+    })
+  })
+})

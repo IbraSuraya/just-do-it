@@ -61,4 +61,40 @@ describe('Post module', () => {
       })
     })
   })
+
+  context.only('EP-2 Get all posts', () => {
+    // 1. - return unauthorized
+    // 2. + return correct count and data
+
+    // CASE 1
+    it('C-1 should return unauthorized', () => {
+      cy.checkUnauthorized('POST', '/posts')
+    })
+
+    // CASE 2
+    it('C-2 should return correct count and data', () => {
+      cy.fixture('data_posts').then((data) => {
+        cy.createPosts(data)
+
+        // Get All data
+        cy.request({
+          method: 'GET',
+          url: '/posts',
+          headers: {
+            authorization: `Bearer ${Cypress.env('token')}`,
+          },
+        }).then(response => {
+          expect(response.status).to.eq(200)
+          expect(response.body.success).to.true
+          expect(response.body.data.length).to.eq(data.length)
+
+          data.forEach((_post, index) => {
+            expect(response.body.data[index].id).to.eq(index + 1)
+            expect(response.body.data[index].title).to.eq(_post.title)
+            expect(response.body.data[index].content).to.eq(_post.content)
+          })
+        })
+      })
+    })
+  })
 })

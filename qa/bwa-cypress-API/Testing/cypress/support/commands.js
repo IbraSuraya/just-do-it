@@ -26,7 +26,10 @@
 
 // Endpoint Register
 Cypress.Commands.add('resetUsers', () => {
-  cy.request('DELETE', '/auth/reset')
+  cy.request('DELETE', '/auth/reset').then((response) => {
+    expect(response.body.success).to.be.true
+    expect(response.body.message).to.eq("Reset users successfully")
+  })
 })
 
 // Error validation : EndPoint Register
@@ -88,7 +91,7 @@ Cypress.Commands.add('loginJohn', () => {
   })
 })
 
-// Endpoint create Post
+// Endpoint Post-Create
 Cypress.Commands.add('generatePostsData', (count) => {
   const { faker } = require('@faker-js/faker')
 
@@ -103,4 +106,33 @@ Cypress.Commands.add('generatePostsData', (count) => {
       }
     }),
   )
+})
+
+// Endpoint Post-getAll
+Cypress.Commands.add('createPosts', (data = []) => {
+  cy.loginJohn()    // because need token in reset and create
+
+  // reset post sebelumnya
+  cy.request({
+    method: 'DELETE',
+    url: '/posts/reset',
+    headers: {
+      authorization: `Bearer ${Cypress.env('token')}`,
+    },
+  }).then((response) => {
+    expect(response.body.success).to.be.true
+    expect(response.body.message).to.eq("Reset posts successfully")
+  })
+
+  // create posts
+  data.forEach((_post) => {
+    cy.request({
+      method: 'POST',
+      url: '/posts',
+      headers: {
+        authorization: `Bearer ${Cypress.env('token')}`,
+      },
+      body: _post,
+    })
+  })
 })
