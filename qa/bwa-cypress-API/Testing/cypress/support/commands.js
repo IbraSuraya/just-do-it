@@ -87,3 +87,20 @@ Cypress.Commands.add('loginJohn', () => {
     Cypress.env('token', response.body.data.access_token)
   })
 })
+
+// Endpoint create Post
+Cypress.Commands.add('generatePostsData', (count) => {
+  const { faker } = require('@faker-js/faker')
+
+  cy.writeFile(
+    'cypress/fixtures/data_posts.json',
+    // lodash seperti forEach
+    Cypress._.times(count, () => {
+      const titleLength = Cypress._.random(1,3)
+      return {
+        title: faker.lorem.words(titleLength),
+        content: faker.lorem.paragraph(),
+      }
+    }),
+  )
+})

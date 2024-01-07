@@ -1,0 +1,27 @@
+it('C-3 should return correct post', () => {
+  const mockPost = {
+    title : 'ini title',
+    content : 'content 1'
+  }
+
+  cy.request({
+    method: 'POST',
+    url: '/posts',
+    headers: {
+      authorization: `Bearer ${Cypress.env('token')}`,
+    },
+    body: {
+      title: mockPost.title,
+      content: mockPost.content,
+    },
+  }).then((response) => {
+    const { success, data: { id, user_id, title, content, comments },} = response.body
+    expect(response.status).to.eq(201)
+    expect(success).to.be.true
+    expect(id).not.to.be.undefined
+    expect(user_id).not.to.be.undefined
+    expect(title).to.eq(mockPost.title)
+    expect(content).to.eq(mockPost.content)
+    expect(comments.length).to.eq(0)
+  })
+})
