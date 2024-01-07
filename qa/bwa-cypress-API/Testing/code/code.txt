@@ -1,0 +1,12 @@
+// Contoh penggunaan expect(actual).(expectation)
+expect(true).to.be.true
+expect(false).not.to.be.true
+expect(false).not.to.be.true
+expect(1 + 1).to.eq(2)
+
+// Assertions : not, to, be, true, false, eq : https://docs.cypress.io/guides/references/assertions
+
+// EndPoint Call : cy.request({})
+
+// Debug
+cy.log(response)

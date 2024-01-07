@@ -9,6 +9,8 @@ Urutan
 Kebingungan
 - Katalon itu basenya java
 - Pelajarin kode cypress contoh [1-getStart 2-advancedExample]
+- Case ini dibikin document excelnya
+- bikin menjadi clean code
 
 Cyprss code
 - 

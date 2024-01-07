@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('resetUsers', () => {
+  cy.request('DELETE', '/auth/reset')
+})
+
+// Error validation : EndPoint Register
+Cypress.Commands.add('badRequest400', (response, messages = []) => {
+  expect(response.status).to.eq(400)
+  expect(response.duration).to.be.lessThan(100)
+  expect(response.body.error).to.eq('Bad Request')
+  messages.forEach((message) => {
+    expect(message).to.be.oneOf(response.body.message)
+  })
+})
+
+// Cypress.Commands.add("unauthorized", (response) => {
+//   expect(response.status).to.eq(401)
+//   expect(response.body.message).to.eq('Unauthorized')
+// })

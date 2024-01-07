@@ -1,0 +1,114 @@
+describe('Auth module', () => {
+  context('EP-Register', () => {
+    // 1. - error validation (null name, email and password)
+    // 2. - error invalid email format
+    // 3. - error invalid password format
+    // 4. + registered successfully
+    // 5. - error duplicate entry
+
+    // CASE 1
+    it('CASE 1 Should return error message for validation', () => {
+      // EP Call
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/auth/register',
+
+        // Karena negatif scenario, ini membuat test case tetap berjalan
+        // Agar bisa check expect, mengabaikan fail
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.duration).to.be.lessThan(10)
+        expect(response.body.error).to.eq('Bad Request')
+        expect('name should not be empty').to.be.oneOf(response.body.message)
+        expect('email should not be empty').to.be.oneOf(response.body.message)
+        expect('password should not be empty').to.be.oneOf(response.body.message)
+      })
+    })
+
+    // CASE 2
+    it('CASE 2 should return error message for invalid email format', () => {
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/auth/register',
+        body: {
+          "name": "John Doe",
+          "email": "joh @ nest.test",   // Format email invalid
+          "password": "Secret_123"
+        },
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.duration).to.be.lessThan(10)
+        expect(response.body.error).to.eq('Bad Request')
+        expect('email must be an email').to.be.oneOf(response.body.message)
+      })
+    })
+
+    // CASE 3
+    it('CASE 3 should return error message for invalid password format', () => {
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/auth/register',
+        body: {
+          "name": "John Doe",
+          "email": "joh@nest.test",   
+          "password": "invalid"     // Format pwd invalid
+        },
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.duration).to.be.lessThan(10)
+        expect(response.body.error).to.eq('Bad Request')
+        expect('password is not strong enough').to.be.oneOf(response.body.message)
+      })
+    })
+
+    // CASE 4
+    it('CASE 4 should successfully registered', () => {
+      // Reset akun registered
+      cy.resetUsers()
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/auth/register',
+        body: {
+          "name": "John Doe",
+          "email": "john@nest.test",   
+          "password": "Secret_123"
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(201)
+        expect(response.duration).to.be.lessThan(100)
+        expect(response.body.success).to.be.true
+        expect(response.body.message).to.eq("User registered successfully")
+      
+        // Cek data yang dikirim
+        const{id, name, email, password, role} = response.body.data
+        expect(id).not.to.be.undefined
+        expect(name).to.eq("John Doe")
+        expect(email).to.eq("john@nest.test")
+        expect(password).to.be.undefined
+        expect(role).to.eq('member')
+      })
+    })
+
+    // CASE 5
+    it('CASE 5 should return error, because of duplicate email', () => {
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/auth/register',
+        body: {
+          "name": "John Doe",
+          "email": "john@nest.test",   
+          "password": "Secret_123"
+        },
+        failOnStatusCode: false
+      }).then((response) => {
+        expect(response.status).to.eq(500)
+        expect(response.duration).to.be.lessThan(10)
+        expect(response.body.message).to.eq("Email already exists")
+        expect(response.body.success).to.be.false
+      })
+    })
+  })
+})
