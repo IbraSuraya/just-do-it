@@ -136,3 +136,11 @@ Cypress.Commands.add('createPosts', (data = []) => {
     })
   })
 })
+
+// EndPoint Post-getPostbyID
+Cypress.Commands.add('notFound404', (response) => {
+  expect(response.status).to.eq(404)
+  expect(response.body.success).to.be.false
+  expect(response.body.data).to.be.null
+  expect(response.body.message).to.eq("Post not found")
+})

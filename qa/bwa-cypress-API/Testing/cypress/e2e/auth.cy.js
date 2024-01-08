@@ -6,6 +6,12 @@ describe('Auth module', () => {
   }
 
   context('EP-Register', () => {
+    // 1. - error validation (null name, email and password)
+    // 2. - error invalid email format
+    // 3. - error invalid password format
+    // 4. + registered successfully
+    // 5. - error duplicate entry
+
     // CASE 1
     it('C-1 Should return error message for validation', () => {
       cy.request({

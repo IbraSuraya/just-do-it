@@ -10,3 +10,6 @@ expect(1 + 1).to.eq(2)
 
 // Debug
 cy.log(response)
+
+// Code lain check 200
+expect(response.status).to.be.ok
