@@ -1,23 +1,23 @@
+dbms/dcd-sql-basic/source
 dbms/pzn-elasticsearch-dasar/server/
 dbms/pzn-elasticsearch-dasar/data
 dbms/pzn-mongodb-dasar/mongodb
 dbms/pzn-mongodb-dasar/mongosh
 dbms/pzn-mongodb-dasar/mongodb-database-tools
-dbms/dcd-sql-basic/source
 
 ds/dcd-python-analysisData/data
 
 explore/not-yet
 
-lfe/dcd-reactjs-web-basic/img
 lfe/dcd-reactjs-web-basic/app-contacts/public/imgs
 lfe/dcd-reactjs-web-basic/app-contacts/src/utils
+lfe/dcd-reactjs-web-basic/img
 lfe/dcd-reactjs-web-fundamental/app-practice/src/components/PathQuery/utils
 
 message-broker/pzn-kafka-dasar/server
 message-broker/pzn-kafka-nodeJS/node_modules
 
-qa/bwa-cypress-websiteE2E/Assets
-qa/bwa-cypress-websiteE2E/testing/node_modules
 qa/bwa-cypress-API/Assets
 qa/bwa-cypress-API/Testing/node_modules
+qa/bwa-cypress-websiteE2E/Assets
+qa/bwa-cypress-websiteE2E/testing/node_modules
