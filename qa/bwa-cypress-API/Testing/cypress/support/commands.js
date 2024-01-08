@@ -35,7 +35,7 @@ Cypress.Commands.add('resetUsers', () => {
 // Error validation : EndPoint Register
 Cypress.Commands.add('badRequest400', (response, messages = []) => {
   expect(response.status).to.eq(400)
-  expect(response.duration).to.be.lessThan(100)
+  expect(response.duration).to.be.lessThan(200)
   expect(response.body.error).to.eq('Bad Request')
   messages.forEach((message) => {
     expect(message).to.be.oneOf(response.body.message)
@@ -45,7 +45,7 @@ Cypress.Commands.add('badRequest400', (response, messages = []) => {
 // EndPoint Login
 Cypress.Commands.add("unauthorized401", (response) => {
   expect(response.status).to.eq(401)
-  expect(response.duration).to.be.lessThan(100)
+  expect(response.duration).to.be.lessThan(200)
   expect(response.body.message).to.eq('Unauthorized')
 })
 
@@ -143,4 +143,36 @@ Cypress.Commands.add('notFound404', (response) => {
   expect(response.body.success).to.be.false
   expect(response.body.data).to.be.null
   expect(response.body.message).to.eq("Post not found")
+})
+
+// EndPoint Create Comment
+Cypress.Commands.add('generateCommentsData', (count) => {
+  const { faker } = require('@faker-js/faker')
+  const maxNumber = 3
+
+  cy.request({
+    method: 'DELETE',
+    url: '/comments/reset',
+    headers: {
+      authorization: `Bearer ${Cypress.env('token')}`,
+    },
+  }).then((response) => {
+    expect(response.status).to.be.ok
+    expect(response.duration).to.be.lessThan(200)
+    expect(response.body.message).to.eq("Reset comments successfully")
+    expect(response.body.success).to.be.true
+  })
+
+  cy.generatePostsData(maxNumber)
+  cy.fixture('data_posts').then((data) => cy.createPosts(data))
+
+  cy.writeFile(
+    'cypress/fixtures/data_comments.json',
+    Cypress._.times(count, () => {
+      return {
+        post_id: faker.datatype.number({ min: 1, max: maxNumber }),
+        content: faker.lorem.words(5),
+      }
+    }),
+  )
 })

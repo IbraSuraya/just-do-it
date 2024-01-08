@@ -1,4 +1,4 @@
-- CP : https://class.buildwithangga.com/course-playing/Dz6pbzVpJR/1
+- CP : https://class.buildwithangga.com/course-playing/Dz6pbzVpJR/38
 - Doc Manual : 
 
 - Run Apps : yarn start

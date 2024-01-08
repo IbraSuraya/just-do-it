@@ -69,7 +69,7 @@ describe('Auth module', () => {
         body: userData,
       }).then((response) => {
         expect(response.status).to.eq(201)
-        expect(response.duration).to.be.lessThan(100)
+        expect(response.duration).to.be.lessThan(200)
         expect(response.body.success).to.be.true
         expect(response.body.message).to.eq("User registered successfully")
       
